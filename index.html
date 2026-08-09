@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Care Journals — free, private journals for family caregivers</title>
 <meta name="description" content="Free Android journals for people looking after someone. Everything stays on your phone. No account, no ads, no subscriptions.">
-<meta name="theme-color" content="#F4F2F7">
+<meta name="theme-color" content="#12111F">
 
 <meta property="og:title" content="My Care Journals">
 <meta property="og:description" content="Free, private journals for family caregivers. Everything stays on your phone.">
@@ -16,17 +16,22 @@
   :root{
     --paper:#F4F2F7;
     --paper-deep:#E9E5F0;
-    --ink:#1B1A2E;
+    --ink:#12111F;
+    --ink-lift:#1C1A2E;
     --ink-soft:#5A5670;
+    --on-dark:#F4F2F7;
+    --on-dark-soft:#A9A3BE;
     --rule:#D6D0E2;
-    --rule-faint:#E2DCEC;
+    --rule-faint:#E4DEEE;
     --teal:#2E7D77;
+    --teal-bright:#5EEAD4;
     --violet:#6A4CA8;
+    --violet-bright:#A78BFA;
 
     --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-    --margin-x: clamp(1.25rem, 5vw, 4rem);
+    --gutter: clamp(1.25rem, 5vw, 4rem);
     --rule-x: clamp(2.5rem, 8vw, 7rem);
   }
 
@@ -43,108 +48,126 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* ---- the margin rule: a notebook's left margin, running the whole page ---- */
-  .page{
+  .inner{max-width:62rem;margin:0 auto;padding:0 var(--gutter);}
+
+  /* ================= HERO ================= */
+  .hero{
     position:relative;
-    max-width:62rem;
-    margin:0 auto;
-    padding:0 var(--margin-x) 0 var(--rule-x);
+    background:var(--ink);
+    color:var(--on-dark);
+    overflow:hidden;
+    border-top:3px solid transparent;
+    border-image:linear-gradient(to right, var(--teal-bright), var(--violet-bright)) 1;
   }
-  .page::before{
+  /* soft coloured lift, same idea as the Play feature graphics */
+  .hero::before{
     content:"";
     position:absolute;
-    top:0; bottom:0;
-    left:calc(var(--rule-x) - 1.35rem);
-    width:1px;
-    background:var(--rule);
-    z-index:1;
+    inset:-30% -10% auto -10%;
+    height:150%;
+    background:
+      radial-gradient(46% 52% at 14% 34%, rgba(94,234,212,.16), transparent 68%),
+      radial-gradient(48% 55% at 84% 60%, rgba(167,139,250,.20), transparent 70%);
+    pointer-events:none;
   }
-
-  section{position:relative;padding:4.5rem 0;}
-  section + section{border-top:1px solid var(--rule);}
-
-  .tick::before{
+  /* ruled paper, in white this time */
+  .hero::after{
     content:"";
     position:absolute;
-    top:4.5rem;
-    left:calc(-1.35rem - 4px);
-    width:9px;height:9px;
-    border-radius:50%;
-    background:var(--paper);
-    border:1px solid var(--rule);
-    z-index:2;
-  }
-
-  /* ---- hero: ruled paper, fading out ---- */
-  header.hero{
-    padding-top:6.5rem;
-    padding-bottom:5.5rem;
-  }
-  header.hero::after{
-    content:"";
-    position:absolute;
-    inset:0 -2rem 0 -2rem;
+    inset:0;
     background:repeating-linear-gradient(
       to bottom,
       transparent 0,
-      transparent calc(2.25rem - 1px),
-      var(--rule-faint) calc(2.25rem - 1px),
-      var(--rule-faint) 2.25rem
+      transparent calc(2.5rem - 1px),
+      rgba(255,255,255,.045) calc(2.5rem - 1px),
+      rgba(255,255,255,.045) 2.5rem
     );
-    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
-    mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 82%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 82%);
     pointer-events:none;
-    z-index:0;
   }
-  header.hero > *{position:relative;z-index:1;}
+  .hero .inner{position:relative;z-index:1;padding-top:7rem;padding-bottom:7.5rem;}
 
   .eyebrow{
     font-family:var(--sans);
     font-size:.75rem;
     font-weight:600;
-    letter-spacing:.14em;
+    letter-spacing:.16em;
     text-transform:uppercase;
-    color:var(--ink-soft);
-    margin:0 0 2rem;
+    color:var(--on-dark-soft);
+    margin:0 0 2.25rem;
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width:1.75rem;height:1px;
+    background:var(--teal-bright);
+    vertical-align:middle;
+    margin-right:.85rem;
   }
 
   h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.6rem,7.2vw,4.75rem);
-    line-height:1.03;
-    letter-spacing:-.02em;
-    margin:0 0 1.5rem;
-    max-width:15ch;
+    font-size:clamp(2.9rem,8.2vw,5.5rem);
+    line-height:1;
+    letter-spacing:-.025em;
+    margin:0 0 1.75rem;
+    max-width:14ch;
   }
   h1 em{
     font-style:normal;
-    background:linear-gradient(to bottom, transparent 62%, rgba(46,125,119,.22) 62%);
+    color:var(--teal-bright);
+  }
+
+  .lede{
+    font-size:clamp(1.125rem,2.1vw,1.375rem);
+    line-height:1.5;
+    color:var(--on-dark-soft);
+    max-width:40ch;
+    margin:0;
+  }
+
+  /* ================= LIGHT BODY, with the margin rule ================= */
+  .page{position:relative;max-width:62rem;margin:0 auto;padding:0 var(--gutter) 0 var(--rule-x);}
+  .page::before{
+    content:"";
+    position:absolute;
+    top:0;bottom:0;
+    left:calc(var(--rule-x) - 1.35rem);
+    width:1px;
+    background:var(--rule);
+  }
+
+  section{position:relative;padding:5rem 0;}
+  section + section{border-top:1px solid var(--rule);}
+
+  .tick::before{
+    content:"";
+    position:absolute;
+    top:5rem;
+    left:calc(-1.35rem - 4px);
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--rule);
   }
 
   h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.7rem,3.8vw,2.4rem);
-    line-height:1.18;
-    letter-spacing:-.012em;
-    margin:0 0 2.25rem;
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    line-height:1.15;
+    letter-spacing:-.015em;
+    margin:0 0 2.5rem;
   }
 
   h3{
     font-family:var(--serif);
     font-weight:400;
-    font-size:1.5rem;
-    line-height:1.25;
-    margin:0 0 .5rem;
-  }
-
-  .lede{
-    font-size:1.25rem;
-    line-height:1.55;
-    color:var(--ink-soft);
-    max-width:42ch;
-    margin:0;
+    font-size:1.55rem;
+    line-height:1.22;
+    margin:0 0 .55rem;
   }
 
   /* ---- app cards ---- */
@@ -154,37 +177,29 @@
   .app{
     background:#fff;
     border:1px solid var(--rule);
-    border-radius:4px;
-    padding:1.75rem 1.6rem 1.6rem;
-    position:relative;
+    border-radius:6px;
     overflow:hidden;
-    box-shadow:0 1px 0 rgba(27,26,46,.02);
+    position:relative;
+    box-shadow:0 1px 0 rgba(18,17,31,.02);
     transition:transform .25s ease, box-shadow .25s ease;
   }
-  .app::before{
-    content:"";
-    position:absolute;
-    left:0;top:0;bottom:0;
-    width:6px;
-    transition:width .25s ease;
-  }
-  .app[data-accent="teal"]::before{background:var(--teal);}
-  .app[data-accent="violet"]::before{background:var(--violet);}
-  .app:hover{
-    transform:translateY(-3px);
-    box-shadow:0 18px 34px -26px rgba(27,26,46,.55);
-  }
-  .app:hover::before{width:9px;}
+  .app:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(18,17,31,.6);}
+
+  .app .crown{height:5px;}
+  .app[data-accent="teal"] .crown{background:linear-gradient(to right, var(--teal), var(--teal-bright));}
+  .app[data-accent="violet"] .crown{background:linear-gradient(to right, var(--violet), var(--violet-bright));}
+
+  .app .body{padding:1.9rem 1.7rem 1.7rem;}
 
   .mark{
     display:block;
-    width:56px;height:56px;
-    border-radius:13px;
-    margin-bottom:1.15rem;
-    box-shadow:0 1px 2px rgba(27,26,46,.18), 0 8px 18px -12px rgba(27,26,46,.5);
+    width:72px;height:72px;
+    border-radius:17px;
+    margin-bottom:1.3rem;
+    box-shadow:0 2px 4px rgba(18,17,31,.2), 0 14px 26px -16px rgba(18,17,31,.65);
   }
 
-  .app p{margin:.35rem 0 1.6rem;color:var(--ink-soft);}
+  .app p{margin:.4rem 0 1.7rem;color:var(--ink-soft);}
 
   .status{
     display:inline-block;
@@ -192,55 +207,66 @@
     font-size:.8125rem;
     font-weight:600;
     letter-spacing:.04em;
-    padding:.5rem .85rem;
-    border-radius:2px;
+    padding:.5rem .9rem;
+    border-radius:3px;
     background:var(--paper-deep);
     color:var(--ink-soft);
   }
 
   /* ---- promises ---- */
-  .promises{display:grid;gap:2.25rem;}
+  .promises{display:grid;gap:2.5rem;}
   @media (min-width:46rem){.promises{grid-template-columns:repeat(3,1fr);gap:2.75rem;}}
-  .promises h3{font-size:1.25rem;}
+  .promises h3{font-size:1.3rem;}
   .promises p{margin:0;color:var(--ink-soft);font-size:1rem;}
-  .promises .keyline{
+  .promises .num{
     display:block;
-    width:2rem;height:2px;
-    background:var(--violet);
-    margin-bottom:1.1rem;
-    opacity:.55;
+    font-family:var(--sans);
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    color:var(--violet);
+    margin-bottom:.9rem;
   }
 
-  /* ---- the ink band ---- */
-  .band{
+  /* ================= CLOSING, dark again ================= */
+  .close{
     background:var(--ink);
-    color:var(--paper);
-    border-radius:4px;
-    padding:2.75rem 2.25rem 2.5rem;
+    color:var(--on-dark);
+    position:relative;
+    overflow:hidden;
   }
-  .band h2{color:var(--paper);margin-bottom:1.5rem;}
-  .band p{color:#C9C4D8;max-width:52ch;}
-  .band p:last-child{margin-bottom:0;}
-  .band a{color:#fff;text-decoration-color:rgba(255,255,255,.45);}
-  .band a:hover{color:#fff;text-decoration-color:#fff;}
-  .band a:focus-visible{outline-color:#fff;}
+  .close::before{
+    content:"";
+    position:absolute;
+    inset:auto -10% -40% -10%;
+    height:120%;
+    background:radial-gradient(42% 60% at 22% 30%, rgba(167,139,250,.16), transparent 70%);
+    pointer-events:none;
+  }
+  .close .inner{position:relative;z-index:1;padding-top:5.5rem;padding-bottom:4rem;}
+  .close h2{color:var(--on-dark);}
+  .close p{color:var(--on-dark-soft);max-width:52ch;}
+  .close a{color:#fff;text-decoration-color:rgba(255,255,255,.45);}
+  .close a:hover{color:var(--teal-bright);text-decoration-color:var(--teal-bright);}
+  .close a:focus-visible{outline-color:#fff;}
+
+  .close footer{
+    margin-top:3.5rem;
+    padding-top:2rem;
+    padding-bottom:1rem;
+    border-top:1px solid rgba(255,255,255,.12);
+    font-size:.9375rem;
+    color:var(--on-dark-soft);
+  }
+  .close footer p{margin:0 0 .6rem;}
 
   /* ---- links ---- */
   a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
   a:hover{color:var(--violet);}
   a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px;}
 
-  footer{
-    padding:3rem 0 4.5rem;
-    border-top:1px solid var(--rule);
-    font-size:.9375rem;
-    color:var(--ink-soft);
-  }
-  footer p{margin:0 0 .6rem;}
-  footer a{color:var(--ink-soft);}
-
   /* ---- scroll reveal ---- */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease, transform .65s ease;}
   .reveal.in{opacity:1;transform:none;}
 
   @media (prefers-reduced-motion:reduce){
@@ -251,30 +277,39 @@
 </head>
 
 <body>
-<div class="page">
 
-  <header class="hero tick">
+<header class="hero">
+  <div class="inner">
     <p class="eyebrow">My Care Journals</p>
     <h1>Write it down. It <em>stays with you.</em></h1>
     <p class="lede">Two free Android journals for people looking after someone. No account to make, no cloud, nothing sent anywhere.</p>
-  </header>
+  </div>
+</header>
+
+<div class="page">
 
   <section class="tick reveal">
     <h2>The journals</h2>
     <div class="apps">
 
       <article class="app" data-accent="teal">
-        <img class="mark" src="dementia-journal.png" width="56" height="56" alt="" loading="lazy">
-        <h3>Dementia Journal</h3>
-        <p>Log what happened by category &mdash; confusion, wandering, sundowning, a fall &mdash; and add a note if you want one. Each category comes with practical tips, alongside a home safety checklist.</p>
-        <span class="status">Coming to Google Play</span>
+        <div class="crown"></div>
+        <div class="body">
+          <img class="mark" src="dementia-journal.png" width="72" height="72" alt="" loading="lazy">
+          <h3>Dementia Journal</h3>
+          <p>Log what happened by category &mdash; confusion, wandering, sundowning, a fall &mdash; and add a note if you want one. Each category comes with practical tips, alongside a home safety checklist.</p>
+          <span class="status">Coming to Google Play</span>
+        </div>
       </article>
 
       <article class="app" data-accent="violet">
-        <img class="mark" src="medication-journal.png" width="56" height="56" alt="" loading="lazy">
-        <h3>Medication Journal</h3>
-        <p>Record each dose as it happens &mdash; given, refused, or missed, with the reason. Your phone reminds you when a dose window opens and again before it closes. Notes can be spoken instead of typed.</p>
-        <span class="status">Coming to Google Play</span>
+        <div class="crown"></div>
+        <div class="body">
+          <img class="mark" src="medication-journal.png" width="72" height="72" alt="" loading="lazy">
+          <h3>Medication Journal</h3>
+          <p>Record each dose as it happens &mdash; given, refused, or missed, with the reason. Your phone reminds you when a dose window opens and again before it closes. Notes can be spoken instead of typed.</p>
+          <span class="status">Coming to Google Play</span>
+        </div>
       </article>
 
     </div>
@@ -284,36 +319,36 @@
     <h2>How they work</h2>
     <div class="promises">
       <div>
-        <span class="keyline"></span>
+        <span class="num">NO SERVER</span>
         <h3>Nothing leaves your phone</h3>
         <p>There is no account, no sign-in, and no server. What you write is stored on the device and nowhere else.</p>
       </div>
       <div>
-        <span class="keyline"></span>
+        <span class="num">NO PAYWALL</span>
         <h3>Free, with nothing held back</h3>
         <p>No ads, no subscription, no paid tier. Every part of both apps works from the day you install them.</p>
       </div>
       <div>
-        <span class="keyline"></span>
+        <span class="num">NO LOCK-IN</span>
         <h3>Yours to keep or delete</h3>
         <p>Save a backup whenever you want one. Uninstall the app and everything in it goes with it.</p>
       </div>
     </div>
   </section>
 
-  <section class="tick reveal">
-    <div class="band">
-      <h2>Who makes these</h2>
-      <p>I'm Jason. I work in a group home in Maine, and I write these in the evenings. The apps come from the same place the notes do &mdash; keeping track of someone, day after day, and wanting the record to be right.</p>
-      <p>They're free because the people who need them are already paying enough. If one of them helps and you'd like to put something in the jar, there's a <a href="https://ko-fi.com/jason_dsp">tip page</a>. It unlocks nothing. That's on purpose.</p>
-    </div>
-  </section>
+</div>
 
-  <footer>
-    <p>Questions, problems, or something you wish the apps did &mdash; write to <a href="mailto:jason@dspsuite.app">jason@dspsuite.app</a>. I read every one.</p>
-    <p>&copy; 2026 My Care Journals</p>
-  </footer>
+<div class="close">
+  <div class="inner">
+    <h2>Who makes these</h2>
+    <p>I'm Jason. I work in a group home in Maine, and I write these in the evenings. The apps come from the same place the notes do &mdash; keeping track of someone, day after day, and wanting the record to be right.</p>
+    <p>They're free because the people who need them are already paying enough. If one of them helps and you'd like to put something in the jar, there's a <a href="https://ko-fi.com/jason_dsp">tip page</a>. It unlocks nothing. That's on purpose.</p>
 
+    <footer>
+      <p>Questions, problems, or something you wish the apps did &mdash; write to <a href="mailto:jason@dspsuite.app">jason@dspsuite.app</a>. I read every one.</p>
+      <p>&copy; 2026 My Care Journals</p>
+    </footer>
+  </div>
 </div>
 
 <script>
