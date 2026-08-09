@@ -19,6 +19,7 @@
     --ink:#1B1A2E;
     --ink-soft:#5A5670;
     --rule:#D6D0E2;
+    --rule-faint:#E2DCEC;
     --teal:#2E7D77;
     --violet:#6A4CA8;
 
@@ -30,7 +31,6 @@
   }
 
   *,*::before,*::after{box-sizing:border-box;}
-
   html{-webkit-text-size-adjust:100%;}
 
   body{
@@ -57,12 +57,12 @@
     left:calc(var(--rule-x) - 1.35rem);
     width:1px;
     background:var(--rule);
+    z-index:1;
   }
 
   section{position:relative;padding:4.5rem 0;}
   section + section{border-top:1px solid var(--rule);}
 
-  /* tick marks sit on the margin rule at each section start */
   .tick::before{
     content:"";
     position:absolute;
@@ -72,9 +72,31 @@
     border-radius:50%;
     background:var(--paper);
     border:1px solid var(--rule);
+    z-index:2;
   }
-  .tick[data-accent="teal"]::before{border-color:var(--teal);background:var(--teal);}
-  .tick[data-accent="violet"]::before{border-color:var(--violet);background:var(--violet);}
+
+  /* ---- hero: ruled paper, fading out ---- */
+  header.hero{
+    padding-top:6.5rem;
+    padding-bottom:5.5rem;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    inset:0 -2rem 0 -2rem;
+    background:repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(2.25rem - 1px),
+      var(--rule-faint) calc(2.25rem - 1px),
+      var(--rule-faint) 2.25rem
+    );
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
+    pointer-events:none;
+    z-index:0;
+  }
+  header.hero > *{position:relative;z-index:1;}
 
   .eyebrow{
     font-family:var(--sans);
@@ -83,26 +105,30 @@
     letter-spacing:.14em;
     text-transform:uppercase;
     color:var(--ink-soft);
-    margin:0 0 1.75rem;
+    margin:0 0 2rem;
   }
 
   h1{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.4rem,6.4vw,4rem);
-    line-height:1.08;
-    letter-spacing:-.015em;
-    margin:0 0 1.25rem;
-    max-width:16ch;
+    font-size:clamp(2.6rem,7.2vw,4.75rem);
+    line-height:1.03;
+    letter-spacing:-.02em;
+    margin:0 0 1.5rem;
+    max-width:15ch;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(to bottom, transparent 62%, rgba(46,125,119,.22) 62%);
   }
 
   h2{
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.6rem,3.6vw,2.25rem);
-    line-height:1.2;
-    letter-spacing:-.01em;
-    margin:0 0 2rem;
+    font-size:clamp(1.7rem,3.8vw,2.4rem);
+    line-height:1.18;
+    letter-spacing:-.012em;
+    margin:0 0 2.25rem;
   }
 
   h3{
@@ -114,36 +140,51 @@
   }
 
   .lede{
-    font-size:1.1875rem;
+    font-size:1.25rem;
+    line-height:1.55;
     color:var(--ink-soft);
-    max-width:44ch;
+    max-width:42ch;
     margin:0;
   }
 
-  header.hero{padding-top:6rem;padding-bottom:5rem;}
-
   /* ---- app cards ---- */
-  .apps{display:grid;gap:1.25rem;}
+  .apps{display:grid;gap:1.5rem;}
   @media (min-width:46rem){.apps{grid-template-columns:1fr 1fr;}}
 
   .app{
     background:#fff;
     border:1px solid var(--rule);
-    border-radius:3px;
-    padding:1.75rem 1.5rem 1.5rem;
+    border-radius:4px;
+    padding:1.75rem 1.6rem 1.6rem;
     position:relative;
     overflow:hidden;
+    box-shadow:0 1px 0 rgba(27,26,46,.02);
+    transition:transform .25s ease, box-shadow .25s ease;
   }
   .app::before{
     content:"";
     position:absolute;
     left:0;top:0;bottom:0;
     width:6px;
+    transition:width .25s ease;
   }
   .app[data-accent="teal"]::before{background:var(--teal);}
   .app[data-accent="violet"]::before{background:var(--violet);}
+  .app:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 34px -26px rgba(27,26,46,.55);
+  }
+  .app:hover::before{width:9px;}
 
-  .app p{margin:.25rem 0 1.5rem;color:var(--ink-soft);}
+  .mark{
+    display:block;
+    width:56px;height:56px;
+    border-radius:13px;
+    margin-bottom:1.15rem;
+    box-shadow:0 1px 2px rgba(27,26,46,.18), 0 8px 18px -12px rgba(27,26,46,.5);
+  }
+
+  .app p{margin:.35rem 0 1.6rem;color:var(--ink-soft);}
 
   .status{
     display:inline-block;
@@ -151,24 +192,43 @@
     font-size:.8125rem;
     font-weight:600;
     letter-spacing:.04em;
-    padding:.45rem .8rem;
+    padding:.5rem .85rem;
     border-radius:2px;
     background:var(--paper-deep);
     color:var(--ink-soft);
   }
 
   /* ---- promises ---- */
-  .promises{display:grid;gap:2rem;}
-  @media (min-width:46rem){.promises{grid-template-columns:repeat(3,1fr);gap:2.5rem;}}
+  .promises{display:grid;gap:2.25rem;}
+  @media (min-width:46rem){.promises{grid-template-columns:repeat(3,1fr);gap:2.75rem;}}
   .promises h3{font-size:1.25rem;}
   .promises p{margin:0;color:var(--ink-soft);font-size:1rem;}
+  .promises .keyline{
+    display:block;
+    width:2rem;height:2px;
+    background:var(--violet);
+    margin-bottom:1.1rem;
+    opacity:.55;
+  }
+
+  /* ---- the ink band ---- */
+  .band{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:4px;
+    padding:2.75rem 2.25rem 2.5rem;
+  }
+  .band h2{color:var(--paper);margin-bottom:1.5rem;}
+  .band p{color:#C9C4D8;max-width:52ch;}
+  .band p:last-child{margin-bottom:0;}
+  .band a{color:#fff;text-decoration-color:rgba(255,255,255,.45);}
+  .band a:hover{color:#fff;text-decoration-color:#fff;}
+  .band a:focus-visible{outline-color:#fff;}
 
   /* ---- links ---- */
   a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
   a:hover{color:var(--violet);}
   a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px;}
-
-  .prose p{max-width:52ch;}
 
   footer{
     padding:3rem 0 4.5rem;
@@ -179,8 +239,13 @@
   footer p{margin:0 0 .6rem;}
   footer a{color:var(--ink-soft);}
 
+  /* ---- scroll reveal ---- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
   }
 </style>
 </head>
@@ -190,22 +255,23 @@
 
   <header class="hero tick">
     <p class="eyebrow">My Care Journals</p>
-
-    <h1>Write it down. It stays with you.</h1>
+    <h1>Write it down. It <em>stays with you.</em></h1>
     <p class="lede">Two free Android journals for people looking after someone. No account to make, no cloud, nothing sent anywhere.</p>
   </header>
 
-  <section class="tick">
+  <section class="tick reveal">
     <h2>The journals</h2>
     <div class="apps">
 
       <article class="app" data-accent="teal">
+        <img class="mark" src="dementia-journal.png" width="56" height="56" alt="" loading="lazy">
         <h3>Dementia Journal</h3>
         <p>Log what happened by category &mdash; confusion, wandering, sundowning, a fall &mdash; and add a note if you want one. Each category comes with practical tips, alongside a home safety checklist.</p>
         <span class="status">Coming to Google Play</span>
       </article>
 
       <article class="app" data-accent="violet">
+        <img class="mark" src="medication-journal.png" width="56" height="56" alt="" loading="lazy">
         <h3>Medication Journal</h3>
         <p>Record each dose as it happens &mdash; given, refused, or missed, with the reason. Your phone reminds you when a dose window opens and again before it closes. Notes can be spoken instead of typed.</p>
         <span class="status">Coming to Google Play</span>
@@ -214,28 +280,33 @@
     </div>
   </section>
 
-  <section class="tick">
+  <section class="tick reveal">
     <h2>How they work</h2>
     <div class="promises">
       <div>
+        <span class="keyline"></span>
         <h3>Nothing leaves your phone</h3>
         <p>There is no account, no sign-in, and no server. What you write is stored on the device and nowhere else.</p>
       </div>
       <div>
+        <span class="keyline"></span>
         <h3>Free, with nothing held back</h3>
         <p>No ads, no subscription, no paid tier. Every part of both apps works from the day you install them.</p>
       </div>
       <div>
+        <span class="keyline"></span>
         <h3>Yours to keep or delete</h3>
         <p>Save a backup whenever you want one. Uninstall the app and everything in it goes with it.</p>
       </div>
     </div>
   </section>
 
-  <section class="tick prose">
-    <h2>Who makes these</h2>
-    <p>I'm Jason. I work in a group home in Maine, and I write these in the evenings. The apps come from the same place the notes do &mdash; keeping track of someone, day after day, and wanting the record to be right.</p>
-    <p>They're free because the people who need them are already paying enough. If one of them helps and you'd like to put something in the jar, there's a <a href="https://ko-fi.com/jason_dsp">tip page</a>. It unlocks nothing. That's on purpose.</p>
+  <section class="tick reveal">
+    <div class="band">
+      <h2>Who makes these</h2>
+      <p>I'm Jason. I work in a group home in Maine, and I write these in the evenings. The apps come from the same place the notes do &mdash; keeping track of someone, day after day, and wanting the record to be right.</p>
+      <p>They're free because the people who need them are already paying enough. If one of them helps and you'd like to put something in the jar, there's a <a href="https://ko-fi.com/jason_dsp">tip page</a>. It unlocks nothing. That's on purpose.</p>
+    </div>
   </section>
 
   <footer>
@@ -244,5 +315,22 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  items.forEach(function(el){ obs.observe(el); });
+})();
+</script>
 </body>
 </html>
