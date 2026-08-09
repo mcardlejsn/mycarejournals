@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Care Journals — free, private journals for family caregivers</title>
+<meta name="description" content="Free Android journals for people looking after someone. Everything stays on your phone. No account, no ads, no subscriptions.">
+<meta name="theme-color" content="#F4F2F7">
+
+<meta property="og:title" content="My Care Journals">
+<meta property="og:description" content="Free, private journals for family caregivers. Everything stays on your phone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mycarejournals.com/">
+
+<style>
+  :root{
+    --paper:#F4F2F7;
+    --paper-deep:#E9E5F0;
+    --ink:#1B1A2E;
+    --ink-soft:#5A5670;
+    --rule:#D6D0E2;
+    --teal:#2E7D77;
+    --violet:#6A4CA8;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --margin-x: clamp(1.25rem, 5vw, 4rem);
+    --rule-x: clamp(2.5rem, 8vw, 7rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- the margin rule: a notebook's left margin, running the whole page ---- */
+  .page{
+    position:relative;
+    max-width:62rem;
+    margin:0 auto;
+    padding:0 var(--margin-x) 0 var(--rule-x);
+  }
+  .page::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    left:calc(var(--rule-x) - 1.35rem);
+    width:1px;
+    background:var(--rule);
+  }
+
+  section{position:relative;padding:4.5rem 0;}
+  section + section{border-top:1px solid var(--rule);}
+
+  /* tick marks sit on the margin rule at each section start */
+  .tick::before{
+    content:"";
+    position:absolute;
+    top:4.5rem;
+    left:calc(-1.35rem - 4px);
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--rule);
+  }
+  .tick[data-accent="teal"]::before{border-color:var(--teal);background:var(--teal);}
+  .tick[data-accent="violet"]::before{border-color:var(--violet);background:var(--violet);}
+
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:.75rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 1.75rem;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2.4rem,6.4vw,4rem);
+    line-height:1.08;
+    letter-spacing:-.015em;
+    margin:0 0 1.25rem;
+    max-width:16ch;
+  }
+
+  h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(1.6rem,3.6vw,2.25rem);
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin:0 0 2rem;
+  }
+
+  h3{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:1.5rem;
+    line-height:1.25;
+    margin:0 0 .5rem;
+  }
+
+  .lede{
+    font-size:1.1875rem;
+    color:var(--ink-soft);
+    max-width:44ch;
+    margin:0;
+  }
+
+  header.hero{padding-top:6rem;padding-bottom:5rem;}
+
+  /* ---- app cards ---- */
+  .apps{display:grid;gap:1.25rem;}
+  @media (min-width:46rem){.apps{grid-template-columns:1fr 1fr;}}
+
+  .app{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:1.75rem 1.5rem 1.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .app::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:6px;
+  }
+  .app[data-accent="teal"]::before{background:var(--teal);}
+  .app[data-accent="violet"]::before{background:var(--violet);}
+
+  .app p{margin:.25rem 0 1.5rem;color:var(--ink-soft);}
+
+  .status{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:.8125rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    padding:.45rem .8rem;
+    border-radius:2px;
+    background:var(--paper-deep);
+    color:var(--ink-soft);
+  }
+
+  /* ---- promises ---- */
+  .promises{display:grid;gap:2rem;}
+  @media (min-width:46rem){.promises{grid-template-columns:repeat(3,1fr);gap:2.5rem;}}
+  .promises h3{font-size:1.25rem;}
+  .promises p{margin:0;color:var(--ink-soft);font-size:1rem;}
+
+  /* ---- links ---- */
+  a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
+  a:hover{color:var(--violet);}
+  a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px;}
+
+  .prose p{max-width:52ch;}
+
+  footer{
+    padding:3rem 0 4.5rem;
+    border-top:1px solid var(--rule);
+    font-size:.9375rem;
+    color:var(--ink-soft);
+  }
+  footer p{margin:0 0 .6rem;}
+  footer a{color:var(--ink-soft);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <header class="hero tick">
+    <p class="eyebrow">My Care Journals</p>
+
+    <h1>Write it down. It stays with you.</h1>
+    <p class="lede">Two free Android journals for people looking after someone. No account to make, no cloud, nothing sent anywhere.</p>
+  </header>
+
+  <section class="tick">
+    <h2>The journals</h2>
+    <div class="apps">
+
+      <article class="app" data-accent="teal">
+        <h3>Dementia Journal</h3>
+        <p>Log what happened by category &mdash; confusion, wandering, sundowning, a fall &mdash; and add a note if you want one. Each category comes with practical tips, alongside a home safety checklist.</p>
+        <span class="status">Coming to Google Play</span>
+      </article>
+
+      <article class="app" data-accent="violet">
+        <h3>Medication Journal</h3>
+        <p>Record each dose as it happens &mdash; given, refused, or missed, with the reason. Your phone reminds you when a dose window opens and again before it closes. Notes can be spoken instead of typed.</p>
+        <span class="status">Coming to Google Play</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="tick">
+    <h2>How they work</h2>
+    <div class="promises">
+      <div>
+        <h3>Nothing leaves your phone</h3>
+        <p>There is no account, no sign-in, and no server. What you write is stored on the device and nowhere else.</p>
+      </div>
+      <div>
+        <h3>Free, with nothing held back</h3>
+        <p>No ads, no subscription, no paid tier. Every part of both apps works from the day you install them.</p>
+      </div>
+      <div>
+        <h3>Yours to keep or delete</h3>
+        <p>Save a backup whenever you want one. Uninstall the app and everything in it goes with it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tick prose">
+    <h2>Who makes these</h2>
+    <p>I'm Jason. I work in a group home in Maine, and I write these in the evenings. The apps come from the same place the notes do &mdash; keeping track of someone, day after day, and wanting the record to be right.</p>
+    <p>They're free because the people who need them are already paying enough. If one of them helps and you'd like to put something in the jar, there's a <a href="https://ko-fi.com/jason_dsp">tip page</a>. It unlocks nothing. That's on purpose.</p>
+  </section>
+
+  <footer>
+    <p>Questions, problems, or something you wish the apps did &mdash; write to <a href="mailto:jason@dspsuite.app">jason@dspsuite.app</a>. I read every one.</p>
+    <p>&copy; 2026 My Care Journals</p>
+  </footer>
+
+</div>
+</body>
+</html>
