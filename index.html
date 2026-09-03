@@ -236,6 +236,7 @@
     .app-card.pws { --accent: #9a7aea; --accent-rgb: 154,122,234; }
     .app-card.medication { --accent: #ff8268; --accent-rgb: 255,130,104; }
     .app-card.autism { --accent: #f6ba45; --accent-rgb: 246,186,69; }
+    .app-card.parkinsons { --accent: #ef233c; --accent-rgb: 239,35,60; }
     .card-meta { display: flex; align-items: center; gap: 8px; color: #738783; font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
     .card-meta .number { margin-right: auto; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #56c58c; box-shadow: 0 0 0 4px rgba(86,197,140,.12); }
@@ -265,6 +266,11 @@
     .download-button:hover { background: #071d1b; }
     .download-button::after { content: "↓"; color: var(--accent); font-size: 17px; }
     .policy-link { padding: 9px 4px; color: #526a67; font-size: 12px; font-weight: 760; text-underline-offset: 4px; }
+    .companion-section { margin-top: 72px; padding-top: 52px; border-top: 1px solid var(--line); }
+    .companion-heading { margin-bottom: 26px; display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+    .companion-heading h3 { margin: 0; font-family: var(--serif); font-size: clamp(31px, 4vw, 47px); font-weight: 500; letter-spacing: -.04em; line-height: 1.08; }
+    .companion-heading > p { max-width: 420px; margin: 0 0 3px; color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
+    .companion-grid { display: grid; grid-template-columns: minmax(0, calc(50% - 11px)); }
 
     .install-section { padding: 115px 0; color: #fff; background: var(--night); }
     .install-grid { display: grid; grid-template-columns: .88fr 1.12fr; align-items: center; gap: 90px; }
@@ -346,6 +352,8 @@
       .principle + .principle { border-left: none; border-top: 1px solid var(--line); }
       .section-heading { display: block; }
       .section-heading > p { margin-top: 22px; }
+      .companion-heading { display: block; }
+      .companion-heading > p { margin-top: 18px; }
       .install-grid, .privacy-grid { grid-template-columns: 1fr; gap: 58px; }
       .privacy-art { order: 2; }
       .story-grid { grid-template-columns: 1fr; }
@@ -372,6 +380,7 @@
       .apps-section, .install-section, .privacy-section { padding: 82px 0; }
       .section-heading h2, .install-copy h2, .privacy-copy h2 { font-size: 43px; }
       .app-grid { grid-template-columns: 1fr; }
+      .companion-grid { grid-template-columns: 1fr; }
       .app-card { min-height: 0; padding: 24px; }
       .app-title-row { align-items: flex-start; }
       .app-icon { width: 62px; height: 62px; }
@@ -413,13 +422,13 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Autism Journal shown with the four My Care Journals apps">
+      <div class="hero-visual" aria-label="Autism Journal shown with the four condition journals">
         <div class="visual-ring r1" aria-hidden="true"></div>
         <div class="visual-ring r2" aria-hidden="true"></div>
         <div class="phone"><img src="autism-journal-screen.png" alt="Autism Journal category selection screen"></div>
         <div class="app-float one"><img src="https://mycarejournals.com/dementia-journal-icon.png" alt=""><span>Dementia Journal</span></div>
         <div class="app-float two"><img src="https://mycarejournals.com/pws-journal-icon.png" alt=""><span>PWS Journal</span></div>
-        <div class="app-float three"><img src="https://mycarejournals.com/medication-routine-icon.png" alt=""><span>Medication Routine</span></div>
+        <div class="app-float three"><img src="parkinsons-journal-icon.png" alt=""><span>Parkinson’s Journal</span></div>
         <div class="app-float four"><img src="autism-journal-icon.png" alt=""><span>Autism Journal</span></div>
       </div>
     </div>
@@ -449,29 +458,45 @@
           <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Dementia-Journal.apk" aria-label="Download Dementia Journal APK">Download APK</a><a class="policy-link" href="dementia-journal-privacy.html">Privacy policy</a></div>
         </article>
 
-        <article class="app-card pws">
+        <article class="app-card autism">
           <div class="card-meta"><span class="number">02</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
+          <div class="app-title-row"><img class="app-icon" src="autism-journal-icon.png" alt="Autism Journal icon"><div><p class="app-eyebrow">Sensory and daily support</p><h3>Autism Journal</h3></div></div>
+          <p class="app-description">Think through sensory needs, communication, routines, regulation, sleep, food, and positive moments with respectful explanations of what may be happening and what might help.</p>
+          <ul class="feature-list"><li>Understanding before reacting</li><li>Respectful ideas for support and regulation</li><li>Safety tools and optional journaling</li></ul>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Autism-Journal.apk" aria-label="Download Autism Journal APK">Download APK</a><a class="policy-link" href="autism-journal-privacy.html">Privacy policy</a></div>
+        </article>
+
+        <article class="app-card pws">
+          <div class="card-meta"><span class="number">03</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
           <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/pws-journal-icon.png" alt="PWS Journal icon"><div><p class="app-eyebrow">Prader-Willi syndrome</p><h3>PWS Journal</h3></div></div>
           <p class="app-description">Understand food-seeking, rigid routines, outbursts, anxiety, skin picking, sleep, and possible illness signs—with practical ideas for responding more consistently and safely.</p>
           <ul class="feature-list"><li>Plain-language PWS guidance</li><li>Practical responses and safety tools</li><li>Private notes for patterns and context</li></ul>
           <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/PWS-Journal.apk" aria-label="Download PWS Journal APK">Download APK</a><a class="policy-link" href="pws-journal-privacy.html">Privacy policy</a></div>
         </article>
 
-        <article class="app-card medication">
-          <div class="card-meta"><span class="number">03</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/medication-routine-icon.png" alt="Medication Routine icon"><div><p class="app-eyebrow">Everyday medication support</p><h3>Medication Routine</h3></div></div>
-          <p class="app-description">Take the guesswork out of a family member’s medication routine. See what is due, get reminders within the right window, and know what has already happened without clinical-system complexity.</p>
-          <ul class="feature-list"><li>Clear medication windows and reminders</li><li>At-a-glance given, refused, or missed status</li><li>Private history and offline voice notes</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk" aria-label="Download Medication Routine APK">Download APK</a><a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a></div>
-        </article>
-
-        <article class="app-card autism">
+        <article class="app-card parkinsons">
           <div class="card-meta"><span class="number">04</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="autism-journal-icon.png" alt="Autism Journal icon"><div><p class="app-eyebrow">Sensory and daily support</p><h3>Autism Journal</h3></div></div>
-          <p class="app-description">Think through sensory needs, communication, routines, regulation, sleep, food, and positive moments with respectful explanations of what may be happening and what might help.</p>
-          <ul class="feature-list"><li>Understanding before reacting</li><li>Respectful ideas for support and regulation</li><li>Safety tools and optional journaling</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Autism-Journal.apk" aria-label="Download Autism Journal APK">Download APK</a><a class="policy-link" href="autism-journal-privacy.html">Privacy policy</a></div>
+          <div class="app-title-row"><img class="app-icon" src="parkinsons-journal-icon.png" alt="Parkinson’s Journal icon"><div><p class="app-eyebrow">Everyday Parkinson’s observations</p><h3>Parkinson’s Journal</h3></div></div>
+          <p class="app-description">Record observable changes in movement, freezing, falls, sleep, speech or swallowing, mood, and confusion—without trying to diagnose the cause or recommend treatment.</p>
+          <ul class="feature-list"><li>Nine focused observation categories</li><li>Practical caregiver safety information</li><li>Encrypted notes and portable backups</li></ul>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Parkinsons-Journal.apk" aria-label="Download Parkinson’s Journal APK">Download APK</a><a class="policy-link" href="parkinsons-journal-privacy.html">Privacy policy</a></div>
         </article>
+      </div>
+
+      <div class="companion-section">
+        <div class="companion-heading">
+          <div><p class="eyebrow dark">Companion care tool</p><h3>Support for the daily routine.</h3></div>
+          <p>Medication Routine remains available as a separate everyday care tool for families who need help keeping medication windows and history clear.</p>
+        </div>
+        <div class="companion-grid">
+          <article class="app-card medication">
+            <div class="card-meta"><span class="number">Daily care tool</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
+            <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/medication-routine-icon.png" alt="Medication Routine icon"><div><p class="app-eyebrow">Everyday medication support</p><h3>Medication Routine</h3></div></div>
+            <p class="app-description">Take the guesswork out of a family member’s medication routine. See what is due, get reminders within the right window, and know what has already happened without clinical-system complexity.</p>
+            <ul class="feature-list"><li>Clear medication windows and reminders</li><li>At-a-glance given, refused, or missed status</li><li>Private history and offline voice notes</li></ul>
+            <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk" aria-label="Download Medication Routine APK">Download APK</a><a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -513,7 +538,7 @@
     <div class="shell footer-grid">
       <div class="footer-column"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
       <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#install">How to install</a><a href="#privacy">Privacy</a><a href="#story">About Jason</a></div>
-      <div class="footer-column"><strong>Privacy policies</strong><a href="dementia-journal-privacy.html">Dementia Journal</a><a href="pws-journal-privacy.html">PWS Journal</a><a href="medication-routine-privacy.html">Medication Routine</a><a href="autism-journal-privacy.html">Autism Journal</a></div>
+      <div class="footer-column"><strong>Privacy policies</strong><a href="dementia-journal-privacy.html">Dementia Journal</a><a href="autism-journal-privacy.html">Autism Journal</a><a href="pws-journal-privacy.html">PWS Journal</a><a href="parkinsons-journal-privacy.html">Parkinson’s Journal</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
       <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 My Care Journals</span><span>Made with care in Maine.</span></div>
