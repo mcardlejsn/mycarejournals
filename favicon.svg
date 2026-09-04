@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="My Care Journals">
+  <rect width="512" height="512" rx="104" fill="#185963"/>
+  <path
+    d="M88 132c62-9 119 9 168 55v164c-47-38-103-54-168-45V132Z"
+    fill="none"
+    stroke="#fffdf9"
+    stroke-width="28"
+    stroke-linejoin="round"
+    stroke-linecap="round"/>
+  <path
+    d="M424 132c-62-9-119 9-168 55v164c47-38 103-54 168-45V132Z"
+    fill="none"
+    stroke="#fffdf9"
+    stroke-width="28"
+    stroke-linejoin="round"
+    stroke-linecap="round"/>
+  <path
+    d="M144 384c67 45 157 45 224 0"
+    fill="none"
+    stroke="#b4c1aa"
+    stroke-width="28"
+    stroke-linecap="round"/>
+</svg>

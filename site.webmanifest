@@ -1,0 +1,19 @@
+{
+  "name": "My Care Journals",
+  "short_name": "Care Journals",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#185963",
+  "background_color": "#fffdf9",
+  "display": "standalone"
+}
