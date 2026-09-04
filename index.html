@@ -82,12 +82,9 @@
     .brand-mark {
       width: 34px;
       height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 11px;
-      background: var(--mint);
-      color: var(--night);
-      box-shadow: 0 0 28px rgba(108, 224, 206, .36);
+      display: block;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 0 14px rgba(108, 224, 206, .28));
     }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { color: rgba(255,255,255,.72); font-size: 14px; font-weight: 650; text-decoration: none; }
@@ -402,7 +399,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span> My Care Journals</a>
+      <a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="34" height="34"> My Care Journals</a>
       <div class="nav-links">
         <a href="#apps">The apps</a>
         <a href="#install">How to install</a>
@@ -541,7 +538,7 @@
 
   <footer>
     <div class="shell footer-grid">
-      <div class="footer-column"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
+      <div class="footer-column"><a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="34" height="34"> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
       <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#install">How to install</a><a href="#privacy">Privacy</a><a href="#story">About Jason</a></div>
       <div class="footer-column"><strong>Privacy policies</strong><a href="dementia-journal-privacy.html">Dementia Journal</a><a href="autism-journal-privacy.html">Autism Journal</a><a href="pws-journal-privacy.html">PWS Journal</a><a href="parkinsons-journal-privacy.html">Parkinson’s Journal</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
       <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p></div>
