@@ -171,9 +171,23 @@
       overflow: hidden;
       position: relative;
       z-index: 2;
+      cursor: pointer;
+      appearance: none;
     }
     .phone::before { content: ""; position: absolute; z-index: 3; top: 10px; left: 50%; width: 76px; height: 17px; border-radius: 20px; background: #050908; transform: translateX(-50%); }
-    .phone img { width: 100%; height: 100%; border-radius: 26px; object-fit: cover; object-position: center top; }
+    .phone:focus-visible { outline: 3px solid var(--mint); outline-offset: 7px; }
+    .phone-screen-stage { width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 26px; background: #050908; }
+    .phone-screen {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0;
+      transition: opacity .65s ease;
+    }
+    .phone-screen.is-active { opacity: 1; }
     .app-float {
       position: absolute;
       z-index: 4;
@@ -344,6 +358,9 @@
       @keyframes phone-float { 50% { translate: 0 -10px; } }
       @keyframes badge-float { 50% { translate: 0 7px; } }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-screen { transition: none; }
+    }
 
     @media (max-width: 930px) {
       .hero { padding-top: 130px; }
@@ -424,10 +441,17 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Autism Journal shown with the four condition journals">
+      <div class="hero-visual" aria-label="My Care Journals app screen carousel">
         <div class="visual-ring r1" aria-hidden="true"></div>
         <div class="visual-ring r2" aria-hidden="true"></div>
-        <div class="phone"><img src="autism-journal-screen.png" alt="Autism Journal category selection screen"></div>
+        <button class="phone" type="button" data-phone-carousel aria-label="Autism Journal category selection screen. Click or tap to show the next app screen.">
+          <span class="phone-screen-stage">
+            <img class="phone-screen is-active" src="autism-journal-screen.png" alt="Autism Journal category selection screen">
+            <img class="phone-screen" src="dementia-journal-screen.jpg" alt="Dementia Journal app screen" aria-hidden="true">
+            <img class="phone-screen" src="pws-journal-screen.png" alt="PWS Journal app screen" aria-hidden="true">
+            <img class="phone-screen" src="medication-routine-screen.jpg" alt="Medication Routine app screen" aria-hidden="true">
+          </span>
+        </button>
         <div class="app-float one"><img src="https://mycarejournals.com/dementia-journal-icon.png" alt=""><span>Dementia Journal</span></div>
         <div class="app-float two"><img src="https://mycarejournals.com/pws-journal-icon.png" alt=""><span>PWS Journal</span></div>
         <div class="app-float three"><img src="parkinsons-journal-icon.png" alt=""><span>Parkinson’s Journal</span></div>
@@ -546,6 +570,50 @@
     <div class="shell footer-bottom"><span>© 2026 My Care Journals</span><span>Made with care in Maine.</span></div>
   </footer>
 
+  <script>
+    (() => {
+      const phone = document.querySelector("[data-phone-carousel]");
+      if (!phone) return;
+
+      const screens = Array.from(phone.querySelectorAll(".phone-screen"));
+      if (screens.length < 2) return;
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let current = 0;
+      let timerId;
+      let hovered = false;
+      let focused = false;
+
+      const showScreen = (index) => {
+        screens[current].classList.remove("is-active");
+        screens[current].setAttribute("aria-hidden", "true");
+        current = (index + screens.length) % screens.length;
+        screens[current].classList.add("is-active");
+        screens[current].removeAttribute("aria-hidden");
+        phone.setAttribute("aria-label", `${screens[current].alt}. Click or tap to show the next app screen.`);
+      };
+
+      const stopCarousel = () => {
+        window.clearInterval(timerId);
+      };
+
+      const startCarousel = () => {
+        stopCarousel();
+        if (!reducedMotion && !hovered && !focused && !document.hidden) {
+          timerId = window.setInterval(() => showScreen(current + 1), 4000);
+        }
+      };
+
+      phone.addEventListener("click", () => showScreen(current + 1));
+      phone.addEventListener("mouseenter", () => { hovered = true; stopCarousel(); });
+      phone.addEventListener("mouseleave", () => { hovered = false; startCarousel(); });
+      phone.addEventListener("focus", () => { focused = true; stopCarousel(); });
+      phone.addEventListener("blur", () => { focused = false; startCarousel(); });
+      document.addEventListener("visibilitychange", startCarousel);
+
+      startCarousel();
+    })();
+  </script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"47a1fdaf17a6489aa4054f97822353f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
