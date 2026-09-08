@@ -6,40 +6,6 @@
   <title>My Care Journals — Practical Support for Family Caregivers</title>
   <meta name="description" content="Free, private Android apps that help family caregivers understand difficult moments, respond with more confidence, and learn what works over time.">
   <meta name="theme-color" content="#09211f">
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-    gtag("consent", "default", {
-      analytics_storage: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
-    });
-
-    window.mcjAnalyticsLoaded = false;
-    window.loadMcjAnalytics = function () {
-      if (window.mcjAnalyticsLoaded) return;
-      window.mcjAnalyticsLoaded = true;
-
-      gtag("consent", "update", { analytics_storage: "granted" });
-      gtag("js", new Date());
-      gtag("config", "G-RCTQNYS7V3");
-
-      const analyticsTag = document.createElement("script");
-      analyticsTag.async = true;
-      analyticsTag.src = "https://www.googletagmanager.com/gtag/js?id=G-RCTQNYS7V3";
-      document.head.appendChild(analyticsTag);
-    };
-
-    try {
-      if (window.localStorage.getItem("mcj-analytics-consent") === "granted") {
-        window.loadMcjAnalytics();
-      }
-    } catch (_) {
-      // Analytics remains off when browser storage is unavailable.
-    }
-  </script>
   <link rel="canonical" href="https://mycarejournals.com/">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -393,79 +359,6 @@
       @keyframes phone-float { 50% { translate: 0 -10px; } }
       @keyframes badge-float { 50% { translate: 0 7px; } }
     }
-    .website-analytics-disclosure {
-      margin-top: 46px;
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: var(--white);
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-    .website-analytics-disclosure strong { color: var(--ink); }
-
-    .analytics-settings {
-      padding: 0;
-      border: 0;
-      background: none;
-      color: #9bb0ac;
-      font: inherit;
-      font-size: 12px;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      cursor: pointer;
-    }
-    .analytics-settings:hover { color: #fff; }
-
-    .analytics-consent {
-      position: fixed;
-      z-index: 1000;
-      right: 18px;
-      bottom: 18px;
-      left: 18px;
-    }
-    .analytics-consent[hidden] { display: none; }
-    .analytics-consent-inner {
-      width: min(720px, 100%);
-      margin: 0 auto;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 16px;
-      background: #0b2723;
-      color: #dce9e7;
-      box-shadow: 0 18px 55px rgba(0,0,0,.3);
-    }
-    .analytics-consent-copy { margin: 0; font-size: 13px; line-height: 1.55; }
-    .analytics-consent-copy strong { display: block; margin-bottom: 2px; color: #fff; font-size: 14px; }
-    .analytics-consent-actions { display: flex; flex: 0 0 auto; gap: 9px; }
-    .analytics-consent-button {
-      min-height: 40px;
-      padding: 9px 13px;
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 10px;
-      background: transparent;
-      color: #fff;
-      font: inherit;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .analytics-consent-button.allow {
-      border-color: var(--mint);
-      background: var(--mint);
-      color: var(--night);
-    }
-    @media (max-width: 650px) {
-      .analytics-consent-inner { align-items: stretch; flex-direction: column; }
-      .analytics-consent-actions { width: 100%; }
-      .analytics-consent-button { flex: 1; }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       .phone-screen { transition: none; }
     }
@@ -590,7 +483,7 @@
           <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/dementia-journal-icon.png" alt="Dementia Journal icon"><div><p class="app-eyebrow">Everyday dementia support</p><h3>Dementia Journal</h3></div></div>
           <p class="app-description">When confusion, agitation, wandering, or other changes leave you unsure what to do, find a simple explanation and practical steps you can try—then keep notes only when they are useful.</p>
           <ul class="feature-list"><li>Understand common dementia changes</li><li>What to try in difficult moments</li><li>Stages, safety, and optional journaling</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Dementia-Journal.apk" data-analytics-event="download_dementia_journal" data-app-name="Dementia Journal" aria-label="Download Dementia Journal APK">Download APK</a><a class="policy-link" href="dementia-journal-privacy.html">Privacy policy</a></div>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Dementia-Journal.apk" aria-label="Download Dementia Journal APK">Download APK</a><a class="policy-link" href="dementia-journal-privacy.html">Privacy policy</a></div>
         </article>
 
         <article class="app-card autism">
@@ -598,7 +491,7 @@
           <div class="app-title-row"><img class="app-icon" src="autism-journal-icon.png" alt="Autism Journal icon"><div><p class="app-eyebrow">Sensory and daily support</p><h3>Autism Journal</h3></div></div>
           <p class="app-description">Think through sensory needs, communication, routines, regulation, sleep, food, and positive moments with respectful explanations of what may be happening and what might help.</p>
           <ul class="feature-list"><li>Understanding before reacting</li><li>Respectful ideas for support and regulation</li><li>Safety tools and optional journaling</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Autism-Journal.apk" data-analytics-event="download_autism_journal" data-app-name="Autism Journal" aria-label="Download Autism Journal APK">Download APK</a><a class="policy-link" href="autism-journal-privacy.html">Privacy policy</a></div>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Autism-Journal.apk" aria-label="Download Autism Journal APK">Download APK</a><a class="policy-link" href="autism-journal-privacy.html">Privacy policy</a></div>
         </article>
 
         <article class="app-card pws">
@@ -606,7 +499,7 @@
           <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/pws-journal-icon.png" alt="PWS Journal icon"><div><p class="app-eyebrow">Prader-Willi syndrome</p><h3>PWS Journal</h3></div></div>
           <p class="app-description">Understand food-seeking, rigid routines, outbursts, anxiety, skin picking, sleep, and possible illness signs—with practical ideas for responding more consistently and safely.</p>
           <ul class="feature-list"><li>Plain-language PWS guidance</li><li>Practical responses and safety tools</li><li>Private notes for patterns and context</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/PWS-Journal.apk" data-analytics-event="download_pws_journal" data-app-name="PWS Journal" aria-label="Download PWS Journal APK">Download APK</a><a class="policy-link" href="pws-journal-privacy.html">Privacy policy</a></div>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/PWS-Journal.apk" aria-label="Download PWS Journal APK">Download APK</a><a class="policy-link" href="pws-journal-privacy.html">Privacy policy</a></div>
         </article>
 
         <article class="app-card parkinsons">
@@ -614,7 +507,7 @@
           <div class="app-title-row"><img class="app-icon" src="parkinsons-journal-icon.png" alt="Parkinson’s Journal icon"><div><p class="app-eyebrow">Everyday Parkinson’s observations</p><h3>Parkinson’s Journal</h3></div></div>
           <p class="app-description">Record observable changes in movement, freezing, falls, sleep, speech or swallowing, mood, and confusion—without trying to diagnose the cause or recommend treatment.</p>
           <ul class="feature-list"><li>Nine focused observation categories</li><li>Practical caregiver safety information</li><li>Encrypted notes and portable backups</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Parkinsons-Journal.apk" data-analytics-event="download_parkinsons_journal" data-app-name="Parkinson’s Journal" aria-label="Download Parkinson’s Journal APK">Download APK</a><a class="policy-link" href="parkinsons-journal-privacy.html">Privacy policy</a></div>
+          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Parkinsons-Journal.apk" aria-label="Download Parkinson’s Journal APK">Download APK</a><a class="policy-link" href="parkinsons-journal-privacy.html">Privacy policy</a></div>
         </article>
       </div>
 
@@ -629,7 +522,7 @@
             <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/medication-routine-icon.png" alt="Medication Routine icon"><div><p class="app-eyebrow">Everyday medication support</p><h3>Medication Routine</h3></div></div>
             <p class="app-description">Take the guesswork out of a family member’s medication routine. See what is due, get reminders within the right window, and know what has already happened without clinical-system complexity.</p>
             <ul class="feature-list"><li>Clear medication windows and reminders</li><li>At-a-glance given, refused, or missed status</li><li>Private history and offline voice notes</li></ul>
-            <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk" data-analytics-event="download_medication_routine" data-app-name="Medication Routine" aria-label="Download Medication Routine APK">Download APK</a><a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a></div>
+            <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk" aria-label="Download Medication Routine APK">Download APK</a><a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a></div>
           </article>
         </div>
       </div>
@@ -659,9 +552,6 @@
         </div>
         <div class="privacy-copy"><p class="eyebrow dark">Private by construction</p><h2>Your family’s story<br><em>stays with your family.</em></h2><p>The apps do not require accounts and contain no advertising or analytics. Records stay in an encrypted database on your device unless you deliberately save an encrypted backup copy somewhere else.</p><div class="privacy-points"><div class="privacy-point"><span class="point-number">01</span><div><strong>Designed to work offline</strong><small>Core journaling, guidance, history, settings, and backups do not require an internet connection.</small></div></div><div class="privacy-point"><span class="point-number">02</span><div><strong>Protected on your device</strong><small>Encrypted storage, encrypted portable backups, and optional device App Lock help protect sensitive records.</small></div></div><div class="privacy-point"><span class="point-number">03</span><div><strong>You control every copy</strong><small>Nothing is uploaded automatically. You choose if and where a portable backup is saved.</small></div></div></div></div>
       </div>
-      <div class="shell website-analytics-disclosure">
-        <strong>Website analytics:</strong> If you choose “Allow analytics,” this public website uses Google Analytics cookies to measure visits and app-download-link clicks. Google Analytics never receives information stored in the apps. You can change your choice at any time from the footer.
-      </div>
     </section>
 
     <section class="story-section shell" id="story">
@@ -677,95 +567,10 @@
       <div class="footer-column"><a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="34" height="34"> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
       <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#install">How to install</a><a href="#privacy">Privacy</a><a href="#story">About Jason</a></div>
       <div class="footer-column"><strong>Privacy policies</strong><a href="dementia-journal-privacy.html">Dementia Journal</a><a href="autism-journal-privacy.html">Autism Journal</a><a href="pws-journal-privacy.html">PWS Journal</a><a href="parkinsons-journal-privacy.html">Parkinson’s Journal</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
-      <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p><button class="analytics-settings" type="button" data-analytics-settings>Analytics settings</button></div>
+      <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 My Care Journals</span><span>Made with care in Maine.</span></div>
   </footer>
-
-  <div class="analytics-consent" data-analytics-consent hidden role="dialog" aria-label="Website analytics choice" aria-live="polite">
-    <div class="analytics-consent-inner">
-      <p class="analytics-consent-copy"><strong>Help improve this website?</strong>With your permission, Google Analytics will measure visits and app-download clicks. It cannot access anything stored in the apps.</p>
-      <div class="analytics-consent-actions">
-        <button class="analytics-consent-button" type="button" data-analytics-decline>No thanks</button>
-        <button class="analytics-consent-button allow" type="button" data-analytics-allow>Allow analytics</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (() => {
-      const consentKey = "mcj-analytics-consent";
-      const banner = document.querySelector("[data-analytics-consent]");
-      const allowButton = document.querySelector("[data-analytics-allow]");
-      const declineButton = document.querySelector("[data-analytics-decline]");
-      const settingsButton = document.querySelector("[data-analytics-settings]");
-
-      if (!banner || !allowButton || !declineButton) return;
-
-      const readChoice = () => {
-        try {
-          return window.localStorage.getItem(consentKey);
-        } catch (_) {
-          return null;
-        }
-      };
-
-      const saveChoice = (choice) => {
-        try {
-          window.localStorage.setItem(consentKey, choice);
-        } catch (_) {
-          // The choice applies to this page only when browser storage is unavailable.
-        }
-      };
-
-      const clearAnalyticsCookies = () => {
-        document.cookie.split(";").forEach((cookie) => {
-          const name = cookie.split("=")[0].trim();
-          if (!name.startsWith("_ga")) return;
-          document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
-          document.cookie = `${name}=; Max-Age=0; path=/; domain=.mycarejournals.com; SameSite=Lax`;
-        });
-      };
-
-      const showBanner = () => {
-        banner.hidden = false;
-        allowButton.focus();
-      };
-
-      allowButton.addEventListener("click", () => {
-        saveChoice("granted");
-        window.loadMcjAnalytics();
-        banner.hidden = true;
-      });
-
-      declineButton.addEventListener("click", () => {
-        const analyticsWasLoaded = window.mcjAnalyticsLoaded;
-        saveChoice("denied");
-        gtag("consent", "update", { analytics_storage: "denied" });
-        clearAnalyticsCookies();
-        banner.hidden = true;
-        if (analyticsWasLoaded) window.location.reload();
-      });
-
-      if (settingsButton) settingsButton.addEventListener("click", showBanner);
-      if (!readChoice()) showBanner();
-    })();
-  </script>
-
-  <script>
-    document.querySelectorAll(".download-button[data-analytics-event]").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (!window.mcjAnalyticsLoaded) return;
-
-        const fileName = new URL(link.href).pathname.split("/").pop();
-        gtag("event", link.dataset.analyticsEvent, {
-          app_name: link.dataset.appName,
-          file_name: fileName,
-          link_url: link.href
-        });
-      });
-    });
-  </script>
 
   <script>
     (() => {
