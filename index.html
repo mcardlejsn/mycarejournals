@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Care Journals — Practical Support for Family Caregivers</title>
-  <meta name="description" content="Free, private Android apps that help family caregivers understand difficult moments, respond with more confidence, and learn what works over time.">
-  <meta name="theme-color" content="#09211f">
+  <title>My Care Journals — Private Tools for Family Caregivers</title>
+  <meta name="description" content="Two free, private Android tools for family caregivers: My Care Journals and Medication Routine. No accounts, no ads, and designed to work offline.">
+  <meta name="theme-color" content="#071b1a">
   <link rel="canonical" href="https://mycarejournals.com/">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,401 +15,211 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="My Care Journals">
   <meta property="og:url" content="https://mycarejournals.com/">
-  <meta property="og:title" content="My Care Journals — Practical Support for Family Caregivers">
-  <meta property="og:description" content="Plain-language caregiving guidance with private, optional journaling. Free and designed to work offline.">
+  <meta property="og:title" content="My Care Journals — Private Tools for Family Caregivers">
+  <meta property="og:description" content="Two free Android tools built from real care work. Private, practical, and designed to work offline.">
   <meta property="og:image" content="https://mycarejournals.com/autism-journal-icon.png">
   <meta property="og:image:alt" content="Autism Journal app icon">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="My Care Journals — Practical Support for Family Caregivers">
-  <meta name="twitter:description" content="Plain-language caregiving guidance with private, optional journaling. Free and designed to work offline.">
+  <meta name="twitter:title" content="My Care Journals — Private Tools for Family Caregivers">
+  <meta name="twitter:description" content="Two free Android tools built from real care work. Private, practical, and designed to work offline.">
   <meta name="twitter:image" content="https://mycarejournals.com/autism-journal-icon.png">
   <style>
     :root {
-      --ink: #102c2a;
-      --ink-soft: #526a67;
-      --night: #071816;
-      --night-2: #0b2723;
-      --paper: #f7f4ed;
-      --white: #fffdf8;
-      --mint: #6ce0ce;
-      --mint-dark: #08796d;
-      --line: rgba(16, 44, 42, .13);
-      --shadow: 0 24px 70px rgba(16, 44, 42, .12);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ink:#102c2a; --ink-soft:#526a67; --night:#061816; --night-2:#0c2925;
+      --paper:#f5f7f4; --white:#fff; --mint:#61dfcb; --mint-deep:#08796d;
+      --coral:#ff8268; --line:rgba(16,44,42,.13); --shadow:0 28px 80px rgba(12,40,37,.13);
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    :focus-visible{outline:3px solid #f6ba45;outline-offset:4px;border-radius:7px}
+    .skip-link{position:absolute;left:16px;top:-80px;z-index:100;padding:10px 14px;background:#fff;color:#111}
+    .skip-link:focus{top:12px}
+    .shell{width:min(1180px,calc(100% - 44px));margin:0 auto}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    :focus-visible { outline: 3px solid #f6ba45; outline-offset: 4px; border-radius: 6px; }
-    .skip-link { position: absolute; left: 16px; top: -80px; z-index: 100; padding: 10px 14px; background: #fff; color: #111; }
-    .skip-link:focus { top: 12px; }
-    .shell { width: min(1180px, calc(100% - 44px)); margin: 0 auto; }
+    .site-header{position:absolute;inset:0 0 auto;z-index:20;color:#fff}
+    .nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:center;gap:11px;color:#fff;font-weight:800;letter-spacing:-.025em;text-decoration:none}
+    .brand-mark{width:35px;height:35px;flex:0 0 auto;filter:drop-shadow(0 0 14px rgba(97,223,203,.25))}
+    .nav-links{display:flex;align-items:center;gap:27px}
+    .nav-links a{color:rgba(255,255,255,.72);font-size:.875rem;font-weight:700;text-decoration:none}
+    .nav-links a:hover{color:#fff}
+    .nav-links .contact-link{padding:10px 15px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);color:#fff}
 
-    .site-header {
-      position: absolute;
-      inset: 0 0 auto;
-      z-index: 20;
-      color: #fff;
-    }
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: #fff;
-      font-weight: 800;
-      letter-spacing: -.025em;
-      text-decoration: none;
-    }
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: block;
-      flex: 0 0 auto;
-      filter: drop-shadow(0 0 14px rgba(108, 224, 206, .28));
-    }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,.72); font-size: 14px; font-weight: 650; text-decoration: none; }
-    .nav-links a:hover { color: #fff; }
-    .nav-links .contact-link { padding: 10px 15px; border: 1px solid rgba(255,255,255,.2); border-radius: 11px; color: #fff; background: rgba(255,255,255,.06); }
+    .hero{min-height:820px;padding:150px 0 120px;overflow:hidden;position:relative;color:#fff;background:radial-gradient(circle at 77% 23%,rgba(97,223,203,.19),transparent 26%),radial-gradient(circle at 14% 2%,rgba(169,139,248,.13),transparent 23%),linear-gradient(135deg,var(--night),var(--night-2) 63%,#11142a)}
+    .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--paper);clip-path:polygon(0 72%,100% 0,100% 100%,0 100%)}
+    .hero-grid{display:grid;grid-template-columns:.96fr 1.04fr;align-items:center;gap:62px;position:relative;z-index:2}
+    .eyebrow{margin:0 0 20px;display:flex;align-items:center;gap:10px;color:#a9cbc5;font-size:.75rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:23px;height:2px;background:var(--mint)}
+    .eyebrow.dark{color:#54736f}
+    .hero h1,.section-heading h2,.privacy-copy h2,.story-main blockquote{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.052em;line-height:1.01}
+    .hero h1{max-width:650px;font-size:clamp(3.35rem,6vw,5rem)}
+    .hero h1 em{color:var(--mint);font-weight:400}
+    .hero-intro{max-width:610px;margin:28px 0 32px;color:#bad0cc;font-size:1.125rem;line-height:1.75}
+    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:15px}
+    .button{min-height:50px;padding:13px 18px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:13px;font:800 .925rem var(--sans);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--mint);color:var(--night);box-shadow:0 13px 35px rgba(97,223,203,.18)}
+    .button.secondary{color:#fff;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.055)}
+    .button.dark{background:var(--ink);color:#fff}
+    .button.disabled{cursor:default;color:#6d7e7b;background:#e8edeb;box-shadow:none}
+    .button.disabled:hover{transform:none}
+    .trust-row{display:flex;flex-wrap:wrap;gap:12px 23px;margin-top:31px;color:#91aca7;font-size:.84rem}
+    .trust-row span::before{content:"✓";margin-right:7px;color:var(--mint);font-weight:900}
 
-    .hero {
-      min-height: 790px;
-      padding: 150px 0 115px;
-      overflow: hidden;
-      color: #fff;
-      background:
-        radial-gradient(circle at 77% 24%, rgba(108,224,206,.18), transparent 26%),
-        radial-gradient(circle at 18% 2%, rgba(167,139,250,.14), transparent 22%),
-        linear-gradient(135deg, var(--night), var(--night-2) 62%, #11142b);
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      height: 66px;
-      background: var(--paper);
-      clip-path: polygon(0 72%, 100% 0, 100% 100%, 0 100%);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 70px; position: relative; z-index: 2; }
-    .eyebrow {
-      margin: 0 0 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #a9cbc5;
-      font-size: 12px;
-      font-weight: 850;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 23px; height: 2px; background: var(--mint); }
-    .eyebrow.dark { color: #54736f; }
-    .hero h1, .section-heading h2, .privacy-copy h2, .install-copy h2 {
-      margin: 0;
-      font-family: var(--serif);
-      font-weight: 500;
-      letter-spacing: -.052em;
-      line-height: .99;
-    }
-    .hero h1 { max-width: 700px; font-size: clamp(52px, 6vw, 79px); }
-    .hero h1 em { color: var(--mint); font-weight: 400; }
-    .hero-intro { max-width: 610px; margin: 28px 0 31px; color: #b9cfcb; font-size: 18px; line-height: 1.75; }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .button {
-      min-height: 50px;
-      padding: 13px 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
-      border-radius: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); }
-    .button.primary { background: var(--mint); color: var(--night); box-shadow: 0 13px 35px rgba(108,224,206,.18); }
-    .button.secondary { color: #fff; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.055); }
-    .trust-row { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 30px; color: #8eaaa5; font-size: 13px; }
-    .trust-row span::before { content: "✓"; color: var(--mint); margin-right: 7px; font-weight: 900; }
+    .device-stage{min-height:540px;display:grid;place-items:center;position:relative}
+    .stage-orbit{position:absolute;width:500px;height:500px;border:1px solid rgba(97,223,203,.16);border-radius:50%}
+    .phone{position:absolute;width:232px;height:500px;padding:7px;overflow:hidden;border:7px solid #162522;border-radius:39px;background:#050908;box-shadow:0 42px 90px rgba(0,0,0,.54),0 0 0 1px rgba(255,255,255,.08)}
+    .phone::before{content:"";position:absolute;z-index:4;top:9px;left:50%;width:74px;height:17px;border-radius:20px;background:#050908;transform:translateX(-50%)}
+    .phone.journals{z-index:3;left:18%;top:2%;transform:rotate(-4deg);cursor:pointer;appearance:none}
+    .phone.medication{z-index:2;right:12%;bottom:0;transform:rotate(5deg) scale(.91);border-color:#211938}
+    .phone-screen-stage{width:100%;height:100%;display:block;position:relative;overflow:hidden;border-radius:26px;background:#050908}
+    .phone-screen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+    .phone.journals .phone-screen{opacity:0;transition:opacity .6s ease}
+    .phone.journals .phone-screen.is-active{opacity:1}
+    .device-label{position:absolute;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 13px 10px 10px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(8,27,24,.89);box-shadow:0 18px 48px rgba(0,0,0,.32);backdrop-filter:blur(12px);color:#e1ecea;font-size:.78rem;font-weight:800}
+    .device-label img{width:34px;height:34px;border-radius:9px;object-fit:cover}
+    .device-label.journal-label{left:3%;top:14%}
+    .device-label.medication-label{right:0;bottom:12%}
 
-    .hero-visual { min-height: 515px; display: grid; place-items: center; position: relative; }
-    .visual-ring { position: absolute; border: 1px solid rgba(108,224,206,.17); border-radius: 50%; }
-    .visual-ring.r1 { width: 480px; height: 480px; }
-    .visual-ring.r2 { width: 360px; height: 360px; }
-    .phone {
-      width: 245px;
-      height: 515px;
-      padding: 8px;
-      border: 7px solid #1a2827;
-      border-radius: 40px;
-      background: #050908;
-      box-shadow: 0 45px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08);
-      transform: rotate(2.2deg);
-      overflow: hidden;
-      position: relative;
-      z-index: 2;
-      cursor: pointer;
-      appearance: none;
-    }
-    .phone::before { content: ""; position: absolute; z-index: 3; top: 10px; left: 50%; width: 76px; height: 17px; border-radius: 20px; background: #050908; transform: translateX(-50%); }
-    .phone:focus-visible { outline: 3px solid var(--mint); outline-offset: 7px; }
-    .phone-screen-stage { width: 100%; height: 100%; display: block; position: relative; overflow: hidden; border-radius: 26px; background: #050908; }
-    .phone-screen {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0;
-      transition: opacity .65s ease;
-    }
-    .phone-screen.is-active { opacity: 1; }
-    .app-float {
-      position: absolute;
-      z-index: 4;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 13px 10px 10px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 15px;
-      background: rgba(12,30,28,.88);
-      box-shadow: 0 18px 50px rgba(0,0,0,.32);
-      backdrop-filter: blur(12px);
-      color: #dce9e7;
-      font-size: 12px;
-      font-weight: 750;
-      white-space: nowrap;
-    }
-    .app-float img { width: 36px; height: 36px; flex: 0 0 36px; object-fit: cover; border-radius: 10px; }
-    .app-float.one { left: -10%; top: 15%; }
-    .app-float.two { right: -2%; top: 23%; }
-    .app-float.three { left: -10%; bottom: 18%; }
-    .app-float.four { right: -4%; bottom: 11%; }
+    .principles{position:relative;z-index:5;margin-top:-36px}
+    .principle-row{display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--white);box-shadow:var(--shadow)}
+    .principle{padding:26px 29px;display:flex;gap:14px;align-items:flex-start}
+    .principle+.principle{border-left:1px solid var(--line)}
+    .principle-symbol{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border-radius:10px;background:#e3f8f3;color:var(--mint-deep);font-size:.9rem;font-weight:900}
+    .principle strong{display:block;font-size:.95rem}
+    .principle small{display:block;margin-top:4px;color:var(--ink-soft);font-size:.8rem;line-height:1.5}
 
-    .principles { position: relative; z-index: 4; margin-top: -35px; }
-    .principle-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .apps-section{padding:120px 0}
+    .section-heading{margin-bottom:50px;display:flex;align-items:end;justify-content:space-between;gap:50px}
+    .section-heading h2{font-size:clamp(2.8rem,5vw,4.35rem)}
+    .section-heading>p{max-width:430px;margin:0 0 4px;color:var(--ink-soft);line-height:1.75}
+    .product-stack{display:grid;gap:28px}
+    .product{overflow:hidden;border:1px solid var(--line);border-radius:30px;background:var(--white);box-shadow:0 20px 64px rgba(16,44,42,.08)}
+    .product-grid{min-height:570px;display:grid;grid-template-columns:1.08fr .92fr}
+    .product-copy{padding:clamp(35px,5vw,65px);display:flex;flex-direction:column;justify-content:center}
+    .product-kicker{margin:0 0 15px;color:var(--mint-deep);font-size:.75rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+    .product h3{margin:0;font-family:var(--serif);font-size:clamp(2.5rem,5vw,4.1rem);font-weight:500;letter-spacing:-.048em;line-height:1.02}
+    .product-lead{max-width:640px;margin:23px 0 25px;color:var(--ink-soft);font-size:1.05rem;line-height:1.75}
+    .feature-list{margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 20px;list-style:none;font-size:.9rem}
+    .feature-list li{display:flex;gap:9px}
+    .feature-list li::before{content:"✓";color:var(--mint-deep);font-weight:950}
+    .product-actions{margin-top:31px;display:flex;align-items:center;flex-wrap:wrap;gap:15px}
+    .policy-link{padding:10px 3px;color:#526a67;font-size:.85rem;font-weight:760;text-underline-offset:4px}
+    .availability-note{margin:13px 0 0;color:#6e807d;font-size:.8rem}
+    .product-visual{padding:42px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 15% 12%,rgba(97,223,203,.25),transparent 32%),linear-gradient(145deg,#0b2b27,#071816)}
+    .module-grid{width:min(100%,410px);display:grid;grid-template-columns:repeat(2,1fr);gap:15px;position:relative;z-index:2}
+    .module-card{padding:19px;border:1px solid rgba(255,255,255,.11);border-radius:20px;background:rgba(255,255,255,.07);color:#fff;backdrop-filter:blur(8px)}
+    .module-card img{width:62px;height:62px;border-radius:16px;object-fit:cover;box-shadow:0 12px 25px rgba(0,0,0,.25)}
+    .module-card strong{display:block;margin-top:15px;font-size:.95rem}
+    .module-card small{display:block;margin-top:3px;color:#a9c0bc;font-size:.75rem;line-height:1.45}
+
+    .product.medication .product-grid{grid-template-columns:.92fr 1.08fr}
+    .product.medication .product-visual{grid-column:1;grid-row:1;background:radial-gradient(circle at 75% 22%,rgba(255,130,104,.19),transparent 28%),radial-gradient(circle at 10% 75%,rgba(169,139,248,.22),transparent 28%),linear-gradient(145deg,#211438,#0f1c2b)}
+    .product.medication .product-copy{grid-column:2;grid-row:1}
+    .medication-showcase{width:min(100%,420px);display:grid;grid-template-columns:1fr 1.25fr;align-items:center;gap:24px;color:#fff}
+    .medication-icon-wrap img{width:160px;border-radius:34px;box-shadow:0 30px 65px rgba(0,0,0,.35)}
+    .medication-points{display:grid;gap:12px}
+    .medication-point{padding:14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.07);font-size:.82rem;font-weight:750;backdrop-filter:blur(8px)}
+    .medication-point span{display:block;margin-top:2px;color:#c1b9d5;font-size:.72rem;font-weight:500}
+    .product.medication .product-kicker{color:#b35e4d}
+    .product.medication .feature-list li::before{color:var(--coral)}
+
+    .privacy-section{padding:115px 0;color:#fff;background:radial-gradient(circle at 20% 15%,rgba(97,223,203,.13),transparent 26%),var(--night)}
+    .privacy-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:85px}
+    .privacy-art{min-height:410px;display:grid;place-items:center;position:relative}
+    .privacy-ring{position:absolute;width:390px;height:390px;border:1px solid rgba(97,223,203,.16);border-radius:50%}
+    .privacy-core{width:215px;height:215px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:linear-gradient(145deg,#1a5d55,#092522);box-shadow:0 30px 70px rgba(0,0,0,.28);text-align:center;position:relative;z-index:2}
+    .privacy-core span{color:var(--mint);font-size:2.75rem;line-height:1}
+    .privacy-core strong{margin-top:13px;font-size:.9rem;letter-spacing:.09em;text-transform:uppercase}
+    .privacy-core small{margin-top:4px;color:#a8c2bd;font-size:.76rem}
+    .privacy-badge{position:absolute;z-index:3;min-width:165px;padding:13px 15px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(255,255,255,.07);box-shadow:0 16px 44px rgba(0,0,0,.22);backdrop-filter:blur(10px);font-size:.78rem;font-weight:750}
+    .privacy-badge.one{left:0;top:18%}
+    .privacy-badge.two{right:0;bottom:18%}
+    .privacy-badge::before{content:"✓";margin-right:8px;color:var(--mint)}
+    .privacy-copy h2{font-size:clamp(2.8rem,5vw,4.35rem)}
+    .privacy-copy h2 em{color:var(--mint);font-weight:400}
+    .privacy-copy>p:not(.eyebrow){margin:25px 0 31px;color:#a9bfbb;line-height:1.78}
+    .privacy-points{display:grid;gap:18px}
+    .privacy-point{display:grid;grid-template-columns:34px 1fr;gap:14px}
+    .privacy-point .point-number{color:var(--mint);font-family:var(--serif);font-weight:700}
+    .privacy-point strong{display:block;font-size:.95rem}
+    .privacy-point small{display:block;margin-top:3px;color:#91aaa5;font-size:.82rem;line-height:1.55}
+
+    .install-section{padding:115px 0}
+    .install-grid{display:grid;grid-template-columns:.82fr 1.18fr;align-items:start;gap:85px}
+    .install-copy{position:sticky;top:32px}
+    .install-copy h2{margin:0;font-family:var(--serif);font-size:clamp(2.7rem,5vw,4rem);font-weight:500;letter-spacing:-.05em;line-height:1.03}
+    .install-copy p:not(.eyebrow){margin:24px 0 0;color:var(--ink-soft);line-height:1.75}
+    .install-steps{display:grid;gap:13px}
+    .install-step{padding:23px;display:grid;grid-template-columns:43px 1fr;gap:17px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .step-number{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#def6f0;color:var(--mint-deep);font-family:var(--serif);font-weight:700}
+    .install-step strong{display:block;margin-bottom:4px;font-size:.95rem}
+    .install-step p{margin:0;color:#6d817d;font-size:.84rem;line-height:1.58}
+    .install-note{margin-top:18px;padding:16px 18px;border-left:3px solid #f6ba45;border-radius:0 12px 12px 0;background:#fff8e9;color:#655b45;font-size:.82rem;line-height:1.6}
+
+    .story-section{padding:0 0 115px}
+    .story-grid{display:grid;grid-template-columns:1.42fr .58fr;gap:22px}
+    .story-main{padding:53px 56px;overflow:hidden;border-radius:28px;background:#dff4ef;position:relative}
+    .story-main::after{content:"“";position:absolute;right:26px;top:-67px;color:#b0e0d5;font-family:var(--serif);font-size:230px;line-height:1}
+    .story-main blockquote{max-width:820px;margin:24px 0 31px;font-size:clamp(1.8rem,3vw,2.65rem);line-height:1.26;position:relative;z-index:2}
+    .signature{display:flex;align-items:center;gap:12px}
+    .avatar{width:45px;height:45px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:.78rem;font-weight:800}
+    .signature span{display:flex;flex-direction:column}
+    .signature strong{font-size:.84rem}
+    .signature small{color:#66817c;font-size:.75rem}
+    .story-side{padding:39px 34px;display:flex;flex-direction:column;justify-content:center;border-radius:28px;background:#ffded5}
+    .story-side p{margin:0 0 32px;font-family:var(--serif);font-size:1.65rem;letter-spacing:-.025em;line-height:1.33}
+    .story-side a{padding-bottom:10px;display:flex;justify-content:space-between;border-bottom:1px solid rgba(16,44,42,.17);font-weight:850;text-decoration:none}
+    .story-side small{margin-top:15px;color:#80665e;font-size:.75rem}
+
+    footer{padding:70px 0 30px;background:#051412;color:#fff}
+    .footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1.4fr 1.25fr;gap:45px}
+    .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+    .footer-column>strong{margin-bottom:3px;color:#75908b;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+    .footer-column a:not(.brand),.footer-column p{margin:0;color:#9bb0ac;font-size:.8rem;text-decoration:none}
+    .footer-column a:hover{color:#fff}
+    .footer-column:first-child p{max-width:270px;margin-top:5px;line-height:1.65}
+    .footer-bottom{margin-top:52px;padding-top:23px;display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.09);color:#6e8883;font-size:.75rem}
+
+    @media (prefers-reduced-motion:no-preference){
+      .phone.journals{animation:phone-left 5.5s ease-in-out infinite}
+      .phone.medication{animation:phone-right 6s ease-in-out -2.2s infinite}
+      @keyframes phone-left{50%{translate:0 -9px}}
+      @keyframes phone-right{50%{translate:0 8px}}
     }
-    .principle { padding: 26px 30px; display: flex; gap: 14px; align-items: flex-start; }
-    .principle + .principle { border-left: 1px solid var(--line); }
-    .principle-number { color: var(--mint-dark); font-family: var(--serif); font-size: 14px; font-weight: 700; }
-    .principle strong { display: block; font-size: 15px; }
-    .principle small { display: block; margin-top: 4px; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
-
-    .apps-section { padding: 115px 0 120px; }
-    .section-heading { margin-bottom: 48px; display: flex; align-items: end; justify-content: space-between; gap: 45px; }
-    .section-heading h2 { font-size: clamp(42px, 5vw, 66px); }
-    .section-heading > p { max-width: 420px; margin: 0 0 4px; color: var(--ink-soft); font-size: 16px; line-height: 1.75; }
-    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-    .app-card {
-      --accent: #48d6c5;
-      --accent-rgb: 72,214,197;
-      min-height: 505px;
-      padding: 29px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--line);
-      border-radius: 27px;
-      background:
-        radial-gradient(circle at 98% 0, rgba(var(--accent-rgb), .17), transparent 34%),
-        var(--white);
-      box-shadow: 0 18px 55px rgba(16,44,42,.075);
-      position: relative;
-      overflow: hidden;
-      transition: transform .22s ease, box-shadow .22s ease;
+    @media (prefers-reduced-motion:reduce){.phone.journals .phone-screen{transition:none}}
+    @media (max-width:980px){
+      .hero{padding-bottom:105px}.hero-grid{grid-template-columns:1fr;gap:48px}.hero-copy{max-width:740px}
+      .device-stage{width:min(100%,650px);margin:0 auto}.principle-row{grid-template-columns:1fr}
+      .principle+.principle{border-left:0;border-top:1px solid var(--line)}
+      .section-heading{display:block}.section-heading>p{margin-top:22px}
+      .product-grid,.product.medication .product-grid{grid-template-columns:1fr}
+      .product-visual,.product.medication .product-visual{grid-column:1;grid-row:2;min-height:500px}
+      .product-copy,.product.medication .product-copy{grid-column:1;grid-row:1}
+      .privacy-grid,.install-grid{grid-template-columns:1fr;gap:55px}.privacy-art{order:2}.install-copy{position:static}
+      .story-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
     }
-    .app-card:hover { transform: translateY(-5px); box-shadow: 0 30px 72px rgba(16,44,42,.13); }
-    .app-card.pws { --accent: #9a7aea; --accent-rgb: 154,122,234; }
-    .app-card.medication { --accent: #ff8268; --accent-rgb: 255,130,104; }
-    .app-card.autism { --accent: #f6ba45; --accent-rgb: 246,186,69; }
-    .app-card.parkinsons { --accent: #ef233c; --accent-rgb: 239,35,60; }
-    .card-meta { display: flex; align-items: center; gap: 8px; color: #738783; font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-    .card-meta .number { margin-right: auto; }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #56c58c; box-shadow: 0 0 0 4px rgba(86,197,140,.12); }
-    .app-title-row { display: flex; align-items: center; gap: 18px; margin-top: 34px; }
-    .app-icon { width: 70px; height: 70px; border-radius: 19px; object-fit: cover; box-shadow: 0 15px 32px rgba(16,44,42,.18); }
-    .app-eyebrow { margin: 0 0 5px; color: #6e827e; font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-    .app-card h3 { margin: 0; font-family: var(--serif); font-size: clamp(30px, 3vw, 39px); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }
-    .app-description { margin: 25px 0 21px; color: var(--ink-soft); font-size: 15px; line-height: 1.72; }
-    .feature-list { margin: 0; padding: 0; display: grid; gap: 10px; list-style: none; font-size: 13px; }
-    .feature-list li { display: flex; gap: 9px; }
-    .feature-list li::before { content: "✓"; color: var(--accent); font-weight: 950; }
-    .card-actions { margin-top: auto; padding-top: 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .download-button {
-      min-height: 46px;
-      padding: 11px 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      border-radius: 12px;
-      background: var(--ink);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 820;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(16,44,42,.17);
-    }
-    .download-button:hover { background: #071d1b; }
-    .download-button::after { content: "↓"; color: var(--accent); font-size: 17px; }
-    .policy-link { padding: 9px 4px; color: #526a67; font-size: 12px; font-weight: 760; text-underline-offset: 4px; }
-    .companion-section { margin-top: 72px; padding-top: 52px; border-top: 1px solid var(--line); }
-    .companion-heading { margin-bottom: 26px; display: flex; align-items: end; justify-content: space-between; gap: 40px; }
-    .companion-heading h3 { margin: 0; font-family: var(--serif); font-size: clamp(31px, 4vw, 47px); font-weight: 500; letter-spacing: -.04em; line-height: 1.08; }
-    .companion-heading > p { max-width: 420px; margin: 0 0 3px; color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
-    .companion-grid { display: grid; grid-template-columns: minmax(0, calc(50% - 11px)); }
-
-    .install-section { padding: 115px 0; color: #fff; background: var(--night); }
-    .install-grid { display: grid; grid-template-columns: .88fr 1.12fr; align-items: center; gap: 90px; }
-    .install-copy h2 { font-size: clamp(43px, 5vw, 66px); }
-    .install-copy h2 em { color: var(--mint); font-weight: 400; }
-    .install-copy > p:not(.eyebrow) { margin: 26px 0 0; color: #a7bdb9; font-size: 16px; line-height: 1.78; }
-    .install-steps { display: grid; gap: 12px; }
-    .install-step { padding: 22px; display: grid; grid-template-columns: 42px 1fr; gap: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(255,255,255,.045); }
-    .step-number { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: rgba(108,224,206,.13); color: var(--mint); font-family: var(--serif); font-weight: 700; }
-    .install-step strong { display: block; margin-bottom: 4px; font-size: 15px; }
-    .install-step p { margin: 0; color: #91aaa5; font-size: 13px; line-height: 1.55; }
-    .install-note { margin-top: 18px; padding: 15px 18px; border-left: 3px solid #f6ba45; border-radius: 0 12px 12px 0; background: rgba(246,186,69,.08); color: #c7d4d2; font-size: 12px; line-height: 1.6; }
-
-    .privacy-section { padding: 115px 0; }
-    .privacy-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 100px; }
-    .privacy-art { min-height: 430px; display: grid; place-items: center; position: relative; }
-    .privacy-art::before, .privacy-art::after { content: ""; position: absolute; border: 1px solid rgba(8,121,109,.14); border-radius: 50%; }
-    .privacy-art::before { width: 420px; height: 420px; }
-    .privacy-art::after { width: 310px; height: 310px; }
-    .shield { width: 190px; height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; clip-path: polygon(50% 0,92% 18%,86% 72%,50% 100%,14% 72%,8% 18%); background: linear-gradient(145deg, #1d6158, #0b2d29); color: #fff; filter: drop-shadow(0 25px 35px rgba(16,44,42,.24)); position: relative; z-index: 2; }
-    .shield-symbol { color: var(--mint); font-size: 48px; line-height: 1; }
-    .shield strong { margin-top: 10px; font-size: 10px; letter-spacing: .14em; }
-    .shield small { margin-top: 4px; color: #91b2ad; font-size: 9px; }
-    .privacy-card { position: absolute; z-index: 3; min-width: 160px; padding: 13px 15px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 15px; background: #fff; box-shadow: 0 18px 50px rgba(16,44,42,.13); font-size: 11px; }
-    .privacy-card::before { width: 29px; height: 29px; display: grid; place-items: center; border-radius: 9px; font-weight: 900; }
-    .privacy-card.local { left: 0; top: 17%; }
-    .privacy-card.local::before { content: "✓"; background: #ddf8f1; color: #08796d; }
-    .privacy-card.cloud { right: -2%; bottom: 19%; }
-    .privacy-card.cloud::before { content: "×"; background: #ffebe6; color: #cf5e49; }
-    .privacy-card span { display: flex; flex-direction: column; }
-    .privacy-card small { color: #748783; }
-    .privacy-copy h2 { font-size: clamp(43px, 5vw, 66px); }
-    .privacy-copy h2 em { color: var(--mint-dark); font-weight: 400; }
-    .privacy-copy > p:not(.eyebrow) { margin: 25px 0 32px; color: var(--ink-soft); font-size: 16px; line-height: 1.78; }
-    .privacy-points { display: grid; gap: 19px; }
-    .privacy-point { display: grid; grid-template-columns: 34px 1fr; gap: 14px; }
-    .privacy-point .point-number { color: var(--mint-dark); font-family: var(--serif); font-weight: 700; }
-    .privacy-point strong { display: block; font-size: 15px; }
-    .privacy-point small { display: block; margin-top: 3px; color: #69807c; line-height: 1.55; }
-
-    .story-section { padding: 0 0 115px; }
-    .story-grid { display: grid; grid-template-columns: 1.42fr .58fr; gap: 22px; }
-    .story-main { padding: 52px 56px; border-radius: 28px; background: #e2f5ef; position: relative; overflow: hidden; }
-    .story-main::after { content: "“"; position: absolute; right: 28px; top: -66px; color: #b4e3d8; font-family: var(--serif); font-size: 230px; line-height: 1; }
-    .story-main blockquote { max-width: 810px; margin: 24px 0 30px; font-family: var(--serif); font-size: clamp(27px, 3vw, 41px); letter-spacing: -.035em; line-height: 1.27; position: relative; z-index: 2; }
-    .signature { display: flex; align-items: center; gap: 12px; }
-    .avatar { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font-size: 12px; font-weight: 800; }
-    .signature span { display: flex; flex-direction: column; }
-    .signature strong { font-size: 13px; }
-    .signature small { color: #66817c; font-size: 11px; }
-    .story-side { padding: 39px 34px; display: flex; flex-direction: column; justify-content: center; border-radius: 28px; background: #ffded5; }
-    .story-side p { margin: 0 0 32px; font-family: var(--serif); font-size: 26px; letter-spacing: -.025em; line-height: 1.33; }
-    .story-side a { padding-bottom: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(16,44,42,.17); font-weight: 850; text-decoration: none; }
-    .story-side small { margin-top: 15px; color: #80665e; font-size: 11px; }
-
-    footer { padding: 70px 0 30px; background: #061412; color: #fff; }
-    .footer-grid { display: grid; grid-template-columns: 1.7fr 1fr 1.45fr 1.25fr; gap: 45px; }
-    .footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
-    .footer-column > strong { margin-bottom: 3px; color: #75908b; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
-    .footer-column a:not(.brand), .footer-column p { margin: 0; color: #9bb0ac; font-size: 12px; text-decoration: none; }
-    .footer-column a:hover { color: #fff; }
-    .footer-column:first-child p { max-width: 270px; margin-top: 5px; line-height: 1.65; }
-    .footer-bottom { margin-top: 52px; padding-top: 23px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.09); color: #6e8883; font-size: 11px; }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .phone { animation: phone-float 5s ease-in-out infinite; }
-      .app-float.one, .app-float.four { animation: badge-float 5.5s ease-in-out infinite; }
-      .app-float.two, .app-float.three { animation: badge-float 5.5s ease-in-out -2.7s infinite; }
-      @keyframes phone-float { 50% { translate: 0 -10px; } }
-      @keyframes badge-float { 50% { translate: 0 7px; } }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .phone-screen { transition: none; }
-    }
-
-    @media (max-width: 930px) {
-      .hero { padding-top: 130px; }
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-copy { display: flex; flex-direction: column; align-items: center; }
-      .hero-visual { min-height: 500px; width: min(540px, 100%); margin: 0 auto; }
-      .principle-row { grid-template-columns: 1fr; }
-      .principle + .principle { border-left: none; border-top: 1px solid var(--line); }
-      .section-heading { display: block; }
-      .section-heading > p { margin-top: 22px; }
-      .companion-heading { display: block; }
-      .companion-heading > p { margin-top: 18px; }
-      .install-grid, .privacy-grid { grid-template-columns: 1fr; gap: 58px; }
-      .privacy-art { order: 2; }
-      .story-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 690px) {
-      .shell { width: min(100% - 28px, 1180px); }
-      .nav { min-height: 67px; }
-      .nav-links a:not(.contact-link) { display: none; }
-      .nav-links .contact-link { padding: 8px 11px; font-size: 12px; }
-      .brand { font-size: 14px; }
-      .hero { min-height: 0; padding: 115px 0 95px; }
-      .hero h1 { font-size: clamp(45px, 13vw, 59px); }
-      .hero-intro { font-size: 16px; }
-      .hero-actions { width: 100%; flex-direction: column; }
-      .hero-actions .button { width: 100%; }
-      .hero-visual { min-height: 430px; transform: scale(.86); margin: -15px auto -25px; }
-      .app-float.one { left: -12%; }
-      .app-float.two { right: -7%; }
-      .app-float.three { left: -12%; }
-      .app-float.four { right: -8%; }
-      .principles { margin-top: -25px; }
-      .apps-section, .install-section, .privacy-section { padding: 82px 0; }
-      .section-heading h2, .install-copy h2, .privacy-copy h2 { font-size: 43px; }
-      .app-grid { grid-template-columns: 1fr; }
-      .companion-grid { grid-template-columns: 1fr; }
-      .app-card { min-height: 0; padding: 24px; }
-      .app-title-row { align-items: flex-start; }
-      .app-icon { width: 62px; height: 62px; }
-      .privacy-art { min-height: 370px; transform: scale(.82); margin: -35px; }
-      .story-section { padding-bottom: 82px; }
-      .story-main { padding: 39px 25px; }
-      .story-side { padding: 36px 28px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 31px; }
-      .footer-bottom { flex-direction: column; }
+    @media (max-width:690px){
+      .shell{width:min(100% - 28px,1180px)}.nav{min-height:68px}.nav-links a:not(.contact-link){display:none}
+      .nav-links .contact-link{padding:8px 11px;font-size:.78rem}.brand{font-size:.9rem}
+      .hero{min-height:0;padding:116px 0 92px}.hero h1{font-size:clamp(2.8rem,13vw,3.75rem)}.hero-intro{font-size:1rem}
+      .hero-actions{width:100%;flex-direction:column}.hero-actions .button{width:100%}
+      .device-stage{min-height:425px;margin-top:-5px;transform:scale(.82)}.stage-orbit{width:440px;height:440px}
+      .phone{width:205px;height:444px}.phone.journals{left:4%}.phone.medication{right:3%}
+      .device-label.journal-label{left:-5%;top:12%}.device-label.medication-label{right:-5%;bottom:10%}
+      .principles{margin-top:-25px}.apps-section,.privacy-section,.install-section{padding:82px 0}
+      .section-heading h2,.privacy-copy h2,.install-copy h2{font-size:2.75rem}.product-copy{padding:34px 24px}.product h3{font-size:2.65rem}
+      .feature-list{grid-template-columns:1fr}.product-visual,.product.medication .product-visual{min-height:0;padding:27px 20px}
+      .module-grid{gap:10px}.module-card{padding:14px}.module-card img{width:52px;height:52px;border-radius:14px}
+      .medication-showcase{grid-template-columns:1fr;text-align:center}.medication-icon-wrap img{width:145px;margin:0 auto}.medication-point{text-align:left}
+      .privacy-art{min-height:355px;transform:scale(.83);margin:-30px}.story-section{padding-bottom:82px}
+      .story-main{padding:39px 25px}.story-side{padding:36px 28px}.footer-grid{grid-template-columns:1fr;gap:31px}.footer-bottom{flex-direction:column}
     }
   </style>
 </head>
@@ -417,11 +227,9 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="34" height="34"> My Care Journals</a>
+      <a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="35" height="35"> My Care Journals</a>
       <div class="nav-links">
-        <a href="#apps">The apps</a>
-        <a href="#install">How to install</a>
-        <a href="#privacy">Privacy</a>
+        <a href="#apps">The apps</a><a href="#privacy">Privacy</a><a href="#story">About</a>
         <a class="contact-link" href="mailto:jason@mycarejournals.com">Get in touch</a>
       </div>
     </nav>
@@ -430,143 +238,165 @@
   <section class="hero" id="top">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Plain-language support for family caregivers</p>
-        <h1>Care is complicated.<br><em>You don’t have to figure it out alone.</em></h1>
-        <p class="hero-intro">Free Android apps that help you understand what may be happening, find practical steps for difficult moments, and learn what works over time. Private journaling is there when it helps—but guidance comes first.</p>
+        <p class="eyebrow">Caregiver tools made in Maine</p>
+        <h1>Less guesswork.<br><em>More confidence.</em></h1>
+        <p class="hero-intro">Two free Android tools built from real care work: one for understanding and recording difficult moments, and one for keeping medication routines clear.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#apps">Choose an app <span aria-hidden="true">↓</span></a>
-          <a class="button secondary" href="#install">How direct installation works <span aria-hidden="true">→</span></a>
+          <a class="button primary" href="#apps">Meet the two apps <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="#privacy">How your information stays private <span aria-hidden="true">→</span></a>
         </div>
-        <div class="trust-row" aria-label="App privacy promises">
-          <span>No account</span><span>No ads</span><span>Works offline</span>
-        </div>
+        <div class="trust-row" aria-label="App privacy promises"><span>No account</span><span>No ads</span><span>Designed to work offline</span></div>
       </div>
-
-      <div class="hero-visual" aria-label="My Care Journals app screen carousel">
-        <div class="visual-ring r1" aria-hidden="true"></div>
-        <div class="visual-ring r2" aria-hidden="true"></div>
-        <button class="phone" type="button" data-phone-carousel aria-label="Autism Journal category selection screen. Click or tap to show the next app screen.">
+      <div class="device-stage" aria-label="Previews of My Care Journals and Medication Routine">
+        <div class="stage-orbit" aria-hidden="true"></div>
+        <button class="phone journals" type="button" data-journal-carousel aria-label="Autism journal screen. Click or tap to show the next journal.">
           <span class="phone-screen-stage">
-            <img class="phone-screen is-active" src="autism-journal-screen.png" alt="Autism Journal category selection screen">
-            <img class="phone-screen" src="dementia-journal-screen.jpg" alt="Dementia Journal app screen" aria-hidden="true">
-            <img class="phone-screen" src="pws-journal-screen.png" alt="PWS Journal app screen" aria-hidden="true">
-            <img class="phone-screen" src="parkinsons-journal-screen.png" alt="Parkinson’s Journal freezing episode guidance screen" aria-hidden="true">
-            <img class="phone-screen" src="medication-routine-screen.jpg" alt="Medication Routine app screen" aria-hidden="true">
+            <img class="phone-screen is-active" src="autism-journal-screen.png" alt="Autism journal category screen">
+            <img class="phone-screen" src="dementia-journal-screen.jpg" alt="Dementia journal category screen" aria-hidden="true">
+            <img class="phone-screen" src="pws-journal-screen.png" alt="PWS guidance screen" aria-hidden="true">
+            <img class="phone-screen" src="parkinsons-journal-screen.png" alt="Parkinson’s freezing episode guidance screen" aria-hidden="true">
           </span>
         </button>
-        <div class="app-float one"><img src="https://mycarejournals.com/dementia-journal-icon.png" alt=""><span>Dementia Journal</span></div>
-        <div class="app-float two"><img src="https://mycarejournals.com/pws-journal-icon.png" alt=""><span>PWS Journal</span></div>
-        <div class="app-float three"><img src="parkinsons-journal-icon.png" alt=""><span>Parkinson’s Journal</span></div>
-        <div class="app-float four"><img src="autism-journal-icon.png" alt=""><span>Autism Journal</span></div>
+        <div class="phone medication" aria-hidden="true"><span class="phone-screen-stage"><img class="phone-screen" src="medication-routine-screen.jpg" alt=""></span></div>
+        <div class="device-label journal-label"><img src="favicon-192x192.png" alt=""><span>My Care Journals</span></div>
+        <div class="device-label medication-label"><img src="medication-routine-icon.png" alt=""><span>Medication Routine</span></div>
       </div>
     </div>
   </section>
 
   <main id="main">
-    <section class="principles shell" aria-label="Design principles">
+    <section class="principles shell" aria-label="What the apps offer">
       <div class="principle-row">
-        <div class="principle"><span class="principle-number">01</span><div><strong>Understand the moment</strong><small>Plain-language information helps make unfamiliar behaviors and needs feel less overwhelming.</small></div></div>
-        <div class="principle"><span class="principle-number">02</span><div><strong>Know what you can try</strong><small>Practical suggestions give family caregivers a clearer place to start in difficult moments.</small></div></div>
-        <div class="principle"><span class="principle-number">03</span><div><strong>Learn what works</strong><small>Optional private notes help you notice patterns, triggers, and approaches that may help over time.</small></div></div>
+        <div class="principle"><span class="principle-symbol" aria-hidden="true">01</span><div><strong>Practical guidance</strong><small>Plain-language information gives caregivers a clearer place to start.</small></div></div>
+        <div class="principle"><span class="principle-symbol" aria-hidden="true">02</span><div><strong>Private records</strong><small>Entries and medication history stay encrypted on your device.</small></div></div>
+        <div class="principle"><span class="principle-symbol" aria-hidden="true">03</span><div><strong>No subscriptions</strong><small>Both apps are free. A contribution never unlocks features.</small></div></div>
       </div>
     </section>
 
     <section class="apps-section shell" id="apps">
       <div class="section-heading">
-        <div><p class="eyebrow dark">Made for families finding their way</p><h2>A clearer place<br>to start.</h2></div>
-        <p>You should not need professional experience just to make it through the day. Each app puts useful guidance first, with private tools for routines and journaling when you need them.</p>
+        <div><p class="eyebrow dark">Two focused tools</p><h2>Choose what<br>helps today.</h2></div>
+        <p>My Care Journals and Medication Routine share the same privacy-first values, but each has one clear job.</p>
       </div>
-
-      <div class="app-grid">
-        <article class="app-card dementia">
-          <div class="card-meta"><span class="number">01</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/dementia-journal-icon.png" alt="Dementia Journal icon"><div><p class="app-eyebrow">Everyday dementia support</p><h3>Dementia Journal</h3></div></div>
-          <p class="app-description">When confusion, agitation, wandering, or other changes leave you unsure what to do, find a simple explanation and practical steps you can try—then keep notes only when they are useful.</p>
-          <ul class="feature-list"><li>Understand common dementia changes</li><li>What to try in difficult moments</li><li>Stages, safety, and optional journaling</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Dementia-Journal.apk" aria-label="Download Dementia Journal APK">Download APK</a><a class="policy-link" href="dementia-journal-privacy.html">Privacy policy</a></div>
-        </article>
-
-        <article class="app-card autism">
-          <div class="card-meta"><span class="number">02</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="autism-journal-icon.png" alt="Autism Journal icon"><div><p class="app-eyebrow">Sensory and daily support</p><h3>Autism Journal</h3></div></div>
-          <p class="app-description">Think through sensory needs, communication, routines, regulation, sleep, food, and positive moments with respectful explanations of what may be happening and what might help.</p>
-          <ul class="feature-list"><li>Understanding before reacting</li><li>Respectful ideas for support and regulation</li><li>Safety tools and optional journaling</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Autism-Journal.apk" aria-label="Download Autism Journal APK">Download APK</a><a class="policy-link" href="autism-journal-privacy.html">Privacy policy</a></div>
-        </article>
-
-        <article class="app-card pws">
-          <div class="card-meta"><span class="number">03</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/pws-journal-icon.png" alt="PWS Journal icon"><div><p class="app-eyebrow">Prader-Willi syndrome</p><h3>PWS Journal</h3></div></div>
-          <p class="app-description">Understand food-seeking, rigid routines, outbursts, anxiety, skin picking, sleep, and possible illness signs—with practical ideas for responding more consistently and safely.</p>
-          <ul class="feature-list"><li>Plain-language PWS guidance</li><li>Practical responses and safety tools</li><li>Private notes for patterns and context</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/PWS-Journal.apk" aria-label="Download PWS Journal APK">Download APK</a><a class="policy-link" href="pws-journal-privacy.html">Privacy policy</a></div>
-        </article>
-
-        <article class="app-card parkinsons">
-          <div class="card-meta"><span class="number">04</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-          <div class="app-title-row"><img class="app-icon" src="parkinsons-journal-icon.png" alt="Parkinson’s Journal icon"><div><p class="app-eyebrow">Everyday Parkinson’s observations</p><h3>Parkinson’s Journal</h3></div></div>
-          <p class="app-description">Record observable changes in movement, freezing, falls, sleep, speech or swallowing, mood, and confusion—without trying to diagnose the cause or recommend treatment.</p>
-          <ul class="feature-list"><li>Nine focused observation categories</li><li>Practical caregiver safety information</li><li>Encrypted notes and portable backups</li></ul>
-          <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Parkinsons-Journal.apk" aria-label="Download Parkinson’s Journal APK">Download APK</a><a class="policy-link" href="parkinsons-journal-privacy.html">Privacy policy</a></div>
-        </article>
-      </div>
-
-      <div class="companion-section">
-        <div class="companion-heading">
-          <div><p class="eyebrow dark">Companion care tool</p><h3>Support for the daily routine.</h3></div>
-          <p>Medication Routine remains available as a separate everyday care tool for families who need help keeping medication windows and history clear.</p>
-        </div>
-        <div class="companion-grid">
-          <article class="app-card medication">
-            <div class="card-meta"><span class="number">Daily care tool</span><span class="status-dot" aria-hidden="true"></span><span>Direct Android download</span></div>
-            <div class="app-title-row"><img class="app-icon" src="https://mycarejournals.com/medication-routine-icon.png" alt="Medication Routine icon"><div><p class="app-eyebrow">Everyday medication support</p><h3>Medication Routine</h3></div></div>
-            <p class="app-description">Take the guesswork out of a family member’s medication routine. See what is due, get reminders within the right window, and know what has already happened without clinical-system complexity.</p>
-            <ul class="feature-list"><li>Clear medication windows and reminders</li><li>At-a-glance given, refused, or missed status</li><li>Private history and offline voice notes</li></ul>
-            <div class="card-actions"><a class="download-button" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk" aria-label="Download Medication Routine APK">Download APK</a><a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="install-section" id="install">
-      <div class="shell install-grid">
-        <div class="install-copy"><p class="eyebrow">Installing directly from this website</p><h2>A few Android taps.<br><em>No account needed.</em></h2><p>These are standard signed Android APK files. Android may ask you to approve installation from your browser the first time you download one.</p></div>
-        <div>
-          <div class="install-steps">
-            <div class="install-step"><span class="step-number">1</span><div><strong>Choose an app</strong><p>Tap its Download APK button and let the file finish downloading.</p></div></div>
-            <div class="install-step"><span class="step-number">2</span><div><strong>Open the downloaded APK</strong><p>Your browser or Files app will ask whether you want to install it.</p></div></div>
-            <div class="install-step"><span class="step-number">3</span><div><strong>Allow this source if prompted</strong><p>Android may ask you to permit app installation from that browser. This setting can be turned off again afterward.</p></div></div>
-            <div class="install-step"><span class="step-number">4</span><div><strong>Tap Install</strong><p>Android and Google Play Protect may scan the file before installation completes.</p></div></div>
+      <div class="product-stack">
+        <article class="product journals">
+          <div class="product-grid">
+            <div class="product-copy">
+              <p class="product-kicker">Condition-specific caregiver journals</p>
+              <h3>Four focused journals.<br>One private app.</h3>
+              <p class="product-lead">Choose the journal that fits the person you support. Each one includes its own categories, practical guidance, Learn content, and private history—without making you navigate material you do not need.</p>
+              <ul class="feature-list">
+                <li>Condition-specific guidance</li><li>Optional journal entries</li><li>Encrypted on-device storage</li>
+                <li>Encrypted portable backups</li><li>Optional device App Lock</li><li>No account or subscription</li>
+              </ul>
+              <div class="product-actions">
+                <span class="button disabled" aria-disabled="true">Android release coming soon</span>
+                <a class="policy-link" href="my-care-journals-privacy.html">Privacy policy</a>
+              </div>
+              <p class="availability-note">My Care Journals is being prepared for release.</p>
+            </div>
+            <div class="product-visual">
+              <div class="module-grid" aria-label="Journals included in My Care Journals">
+                <div class="module-card"><img src="dementia-journal-icon.png" alt=""><strong>Dementia</strong><small>Confusion, wandering, sundowning, mood, sleep, and more.</small></div>
+                <div class="module-card"><img src="autism-journal-icon.png" alt=""><strong>Autism</strong><small>Sensory needs, communication, routines, regulation, and sleep.</small></div>
+                <div class="module-card"><img src="parkinsons-journal-icon.png" alt=""><strong>Parkinson’s</strong><small>Movement, freezing, falls, speech, sleep, mood, and confusion.</small></div>
+                <div class="module-card"><img src="pws-journal-icon.png" alt=""><strong>PWS</strong><small>Food seeking, routines, anxiety, skin picking, sleep, and illness signs.</small></div>
+              </div>
+            </div>
           </div>
-          <div class="install-note"><strong>Safety note:</strong> Download these apps only from mycarejournals.com or the Google Play Store when available. Never install a copy sent by an unknown person.</div>
-        </div>
+        </article>
+
+        <article class="product medication">
+          <div class="product-grid">
+            <div class="product-visual">
+              <div class="medication-showcase">
+                <div class="medication-icon-wrap"><img src="medication-routine-icon.png" alt="Medication Routine app icon"></div>
+                <div class="medication-points" aria-label="Medication Routine highlights">
+                  <div class="medication-point">What is due now<span>Clear daily medication windows</span></div>
+                  <div class="medication-point">What already happened<span>Given, refused, or missed</span></div>
+                  <div class="medication-point">What needs attention<span>Reminders and private history</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="product-copy">
+              <p class="product-kicker">Everyday medication support</p>
+              <h3>Keep the routine clear.</h3>
+              <p class="product-lead">Medication Routine helps families see what is due, record what happened, and look back at a private history—without the complexity of a clinical medication system.</p>
+              <ul class="feature-list">
+                <li>Daily medication schedule</li><li>Reminder notifications</li><li>Given, refused, and missed status</li>
+                <li>Private history</li><li>Offline voice notes</li><li>Encrypted backups</li>
+              </ul>
+              <div class="product-actions">
+                <a class="button dark" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk">Download Android APK <span aria-hidden="true">↓</span></a>
+                <a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a>
+              </div>
+              <p class="availability-note">Free for Android. No account required.</p>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="privacy-section" id="privacy">
       <div class="shell privacy-grid">
         <div class="privacy-art" aria-hidden="true">
-          <div class="shield"><span class="shield-symbol">⌂</span><strong>YOUR PHONE</strong><small>The whole cloud</small></div>
-          <div class="privacy-card local"><span><strong>Saved locally</strong><small>Encrypted on device</small></span></div>
-          <div class="privacy-card cloud"><span><strong>No app server</strong><small>Nothing to upload</small></span></div>
+          <div class="privacy-ring"></div>
+          <div class="privacy-core"><span>⌂</span><strong>Your phone</strong><small>Where your records stay</small></div>
+          <div class="privacy-badge one">Encrypted local storage</div><div class="privacy-badge two">No automatic uploads</div>
         </div>
-        <div class="privacy-copy"><p class="eyebrow dark">Private by construction</p><h2>Your family’s story<br><em>stays with your family.</em></h2><p>The apps do not require accounts and contain no advertising or analytics. Records stay in an encrypted database on your device unless you deliberately save an encrypted backup copy somewhere else.</p><div class="privacy-points"><div class="privacy-point"><span class="point-number">01</span><div><strong>Designed to work offline</strong><small>Core journaling, guidance, history, settings, and backups do not require an internet connection.</small></div></div><div class="privacy-point"><span class="point-number">02</span><div><strong>Protected on your device</strong><small>Encrypted storage, encrypted portable backups, and optional device App Lock help protect sensitive records.</small></div></div><div class="privacy-point"><span class="point-number">03</span><div><strong>You control every copy</strong><small>Nothing is uploaded automatically. You choose if and where a portable backup is saved.</small></div></div></div></div>
+        <div class="privacy-copy">
+          <p class="eyebrow">Private by construction</p>
+          <h2>Your family’s information<br><em>belongs to your family.</em></h2>
+          <p>Neither app requires an account or includes advertising or in-app analytics. Your records stay in an encrypted database on your device unless you deliberately save an encrypted backup somewhere else.</p>
+          <div class="privacy-points">
+            <div class="privacy-point"><span class="point-number">01</span><div><strong>Designed to work offline</strong><small>Core guidance, journaling, history, routines, settings, and backups do not require an internet connection.</small></div></div>
+            <div class="privacy-point"><span class="point-number">02</span><div><strong>Protected on your device</strong><small>Encrypted storage, encrypted portable backups, and optional device App Lock help protect sensitive records.</small></div></div>
+            <div class="privacy-point"><span class="point-number">03</span><div><strong>You control every copy</strong><small>Nothing is uploaded automatically. You choose if and where a portable backup is saved.</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="install-section" id="install">
+      <div class="shell install-grid">
+        <div class="install-copy">
+          <p class="eyebrow dark">Direct Android installation</p>
+          <h2>A few taps.<br>No account needed.</h2>
+          <p>Medication Routine is currently available as a standard signed Android APK. Android may ask you to approve installation from your browser the first time.</p>
+        </div>
+        <div>
+          <div class="install-steps">
+            <div class="install-step"><span class="step-number">1</span><div><strong>Download the APK</strong><p>Use the Medication Routine download button above and let the file finish downloading.</p></div></div>
+            <div class="install-step"><span class="step-number">2</span><div><strong>Open the downloaded file</strong><p>Your browser or Files app will ask whether you want to install it.</p></div></div>
+            <div class="install-step"><span class="step-number">3</span><div><strong>Allow this source if prompted</strong><p>Android may ask you to permit installation from that browser. You can turn the permission off again afterward.</p></div></div>
+            <div class="install-step"><span class="step-number">4</span><div><strong>Tap Install</strong><p>Android and Google Play Protect may scan the file before installation completes.</p></div></div>
+          </div>
+          <div class="install-note"><strong>Safety note:</strong> Download these apps only from mycarejournals.com or their official Google Play listings when available. Never install a copy sent by an unknown person.</div>
+        </div>
       </div>
     </section>
 
     <section class="story-section shell" id="story">
       <div class="story-grid">
-        <div class="story-main"><p class="eyebrow dark">Built from real care work</p><blockquote>“I work in a group home in Maine. I make these to turn practical care experience into clear, private tools for families who may not know where to start.”</blockquote><div class="signature"><div class="avatar">JM</div><span><strong>Jason</strong><small>Caregiver and independent developer</small></span></div></div>
-        <div class="story-side"><p>These apps are free because the people who need them are already paying enough.</p><a href="https://ko-fi.com/jason_dsp">Tip the developer <span aria-hidden="true">↗</span></a><small>A tip unlocks nothing. That’s on purpose.</small></div>
+        <div class="story-main">
+          <p class="eyebrow dark">Built from real care work</p>
+          <blockquote>“I work in a group home in Maine. I make these to turn practical care experience into clear, private tools for families who may not know where to start.”</blockquote>
+          <div class="signature"><div class="avatar">JM</div><span><strong>Jason McArdle</strong><small>Caregiver and independent developer</small></span></div>
+        </div>
+        <div class="story-side">
+          <p>These apps are free because the people who need them are already paying enough.</p>
+          <a href="https://ko-fi.com/jason_dsp">Tip the developer <span aria-hidden="true">↗</span></a>
+          <small>A tip unlocks nothing. That’s on purpose.</small>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="shell footer-grid">
-      <div class="footer-column"><a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="34" height="34"> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
-      <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#install">How to install</a><a href="#privacy">Privacy</a><a href="#story">About Jason</a></div>
-      <div class="footer-column"><strong>Privacy policies</strong><a href="dementia-journal-privacy.html">Dementia Journal</a><a href="autism-journal-privacy.html">Autism Journal</a><a href="pws-journal-privacy.html">PWS Journal</a><a href="parkinsons-journal-privacy.html">Parkinson’s Journal</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
+      <div class="footer-column"><a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="35" height="35"> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
+      <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#privacy">Privacy</a><a href="#install">How to install</a><a href="#story">About Jason</a></div>
+      <div class="footer-column"><strong>Privacy policies</strong><a href="my-care-journals-privacy.html">My Care Journals</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
       <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 My Care Journals</span><span>Made with care in Maine.</span></div>
@@ -574,45 +404,36 @@
 
   <script>
     (() => {
-      const phone = document.querySelector("[data-phone-carousel]");
+      const phone = document.querySelector("[data-journal-carousel]");
       if (!phone) return;
-
       const screens = Array.from(phone.querySelectorAll(".phone-screen"));
       if (screens.length < 2) return;
-
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let current = 0;
       let timerId;
       let hovered = false;
       let focused = false;
-
       const showScreen = (index) => {
         screens[current].classList.remove("is-active");
         screens[current].setAttribute("aria-hidden", "true");
         current = (index + screens.length) % screens.length;
         screens[current].classList.add("is-active");
         screens[current].removeAttribute("aria-hidden");
-        phone.setAttribute("aria-label", `${screens[current].alt}. Click or tap to show the next app screen.`);
+        phone.setAttribute("aria-label", screens[current].alt + ". Click or tap to show the next journal.");
       };
-
-      const stopCarousel = () => {
-        window.clearInterval(timerId);
-      };
-
+      const stopCarousel = () => window.clearInterval(timerId);
       const startCarousel = () => {
         stopCarousel();
         if (!reducedMotion && !hovered && !focused && !document.hidden) {
-          timerId = window.setInterval(() => showScreen(current + 1), 4000);
+          timerId = window.setInterval(() => showScreen(current + 1), 4300);
         }
       };
-
       phone.addEventListener("click", () => showScreen(current + 1));
       phone.addEventListener("mouseenter", () => { hovered = true; stopCarousel(); });
       phone.addEventListener("mouseleave", () => { hovered = false; startCarousel(); });
       phone.addEventListener("focus", () => { focused = true; stopCarousel(); });
       phone.addEventListener("blur", () => { focused = false; startCarousel(); });
       document.addEventListener("visibilitychange", startCarousel);
-
       startCarousel();
     })();
   </script>

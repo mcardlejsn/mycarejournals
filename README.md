@@ -2,27 +2,33 @@
 
 Static GitHub Pages website for `mycarejournals.com`.
 
-## Direct APK downloads
+## Current homepage downloads
 
-The five homepage download buttons use one fixed GitHub Release tag:
+The redesigned homepage presents two products:
+
+- My Care Journals, containing Dementia, Autism, Parkinson's, and PWS journals
+- Medication Routine, which remains a separate app
+
+My Care Journals is currently marked as coming soon. Medication Routine uses
+the fixed GitHub Release tag:
 
 ```text
 downloads
 ```
 
-Upload the signed APKs to that release using these exact filenames:
+Upload the signed Medication Routine APK using this exact filename:
 
 | App | Required release filename |
 | --- | --- |
-| Dementia Journal | `Dementia-Journal.apk` |
-| Autism Journal | `Autism-Journal.apk` |
-| PWS Journal | `PWS-Journal.apk` |
-| Parkinson's Journal | `Parkinsons-Journal.apk` |
 | Medication Routine | `Medication-Routine.apk` |
 
-The website links do not need to be edited when an APK is added or replaced.
+The Medication Routine website link does not need to be edited when its APK is replaced.
 Before replacing an existing APK, delete the old release asset with the same
 filename, then upload the newly signed file using that exact filename.
+
+The previous standalone journal APK assets and privacy pages remain in the
+repository so existing public links are not broken, but they are no longer
+promoted on the homepage.
 
 All public APKs must be signed with the app's permanent signing/release key.
 Do not upload debug APKs or APKs signed with a Play upload key.
