@@ -118,6 +118,11 @@
     .module-card img{width:62px;height:62px;border-radius:16px;object-fit:cover;box-shadow:0 12px 25px rgba(0,0,0,.25)}
     .module-card strong{display:block;margin-top:15px;font-size:.95rem}
     .module-card small{display:block;margin-top:3px;color:#a9c0bc;font-size:.75rem;line-height:1.45}
+    .module-request{grid-column:1/-1;padding:18px 19px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid rgba(97,223,203,.25);border-radius:18px;background:rgba(97,223,203,.09);color:#fff}
+    .module-request strong{display:block;font-size:.9rem}
+    .module-request small{display:block;margin-top:2px;color:#a9c0bc;font-size:.75rem;line-height:1.45}
+    .module-request a{flex:0 0 auto;color:var(--mint);font-size:.8rem;font-weight:800;text-decoration:none}
+    .module-request a:hover{text-decoration:underline;text-underline-offset:4px}
 
     .product.medication .product-grid{grid-template-columns:.92fr 1.08fr}
     .product.medication .product-visual{grid-column:1;grid-row:1;background:radial-gradient(circle at 75% 22%,rgba(255,130,104,.19),transparent 28%),radial-gradient(circle at 10% 75%,rgba(169,139,248,.22),transparent 28%),linear-gradient(145deg,#211438,#0f1c2b)}
@@ -217,6 +222,7 @@
       .section-heading h2,.privacy-copy h2,.install-copy h2{font-size:2.75rem}.product-copy{padding:34px 24px}.product h3{font-size:2.65rem}
       .feature-list{grid-template-columns:1fr}.product-visual,.product.medication .product-visual{min-height:0;padding:27px 20px}
       .module-grid{gap:10px}.module-card{padding:14px}.module-card img{width:52px;height:52px;border-radius:14px}
+      .module-request{align-items:flex-start;flex-direction:column;gap:9px;padding:15px}
       .medication-showcase{grid-template-columns:1fr;text-align:center}.medication-icon-wrap img{width:145px;margin:0 auto}.medication-point{text-align:left}
       .privacy-art{min-height:355px;transform:scale(.83);margin:-30px}.story-section{padding-bottom:82px}
       .story-main{padding:39px 25px}.story-side{padding:36px 28px}.footer-grid{grid-template-columns:1fr;gap:31px}.footer-bottom{flex-direction:column}
@@ -284,7 +290,7 @@
             <div class="product-copy">
               <p class="product-kicker">Condition-specific caregiver journals</p>
               <h3>Four focused journals.<br>One private app.</h3>
-              <p class="product-lead">Choose the journal that fits the person you support. Each one includes its own categories, practical guidance, learn content, and private history—without making you navigate material you do not need.</p>
+              <p class="product-lead">Choose the journal that fits the person you support. Each one includes its own categories, practical guidance, Learn content, and private history—without making you navigate material you do not need.</p>
               <ul class="feature-list">
                 <li>Condition-specific guidance</li><li>Optional journal entries</li><li>Encrypted on-device storage</li>
                 <li>Encrypted portable backups</li><li>Optional device App Lock</li><li>No account or subscription</li>
@@ -301,6 +307,10 @@
                 <div class="module-card"><img src="autism-journal-icon.png" alt=""><strong>Autism</strong><small>Sensory needs, communication, routines, regulation, and sleep.</small></div>
                 <div class="module-card"><img src="parkinsons-journal-icon.png" alt=""><strong>Parkinson’s</strong><small>Movement, freezing, falls, speech, sleep, mood, and confusion.</small></div>
                 <div class="module-card"><img src="pws-journal-icon.png" alt=""><strong>PWS</strong><small>Food seeking, routines, anxiety, skin picking, sleep, and illness signs.</small></div>
+                <div class="module-request">
+                  <span><strong>More journal modules are coming.</strong><small>Is there another condition that would help your family?</small></span>
+                  <a href="mailto:jason@mycarejournals.com?subject=Journal%20module%20request">Request a module <span aria-hidden="true">→</span></a>
+                </div>
               </div>
             </div>
           </div>
@@ -381,7 +391,7 @@
         <div class="story-main">
           <p class="eyebrow dark">Built from real care work</p>
           <blockquote>“I work in a group home in Maine. I make these to turn practical care experience into clear, private tools for families who may not know where to start.”</blockquote>
-          <div class="signature"><div class="avatar">JM</div><span><strong>Jason </strong><small>Caregiver and independent developer</small></span></div>
+          <div class="signature"><div class="avatar">JM</div><span><strong>Jason McArdle</strong><small>Caregiver and independent developer</small></span></div>
         </div>
         <div class="story-side">
           <p>These apps are free because the people who need them are already paying enough.</p>
