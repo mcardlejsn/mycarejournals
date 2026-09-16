@@ -156,18 +156,6 @@
     .privacy-point strong{display:block;font-size:.95rem}
     .privacy-point small{display:block;margin-top:3px;color:#91aaa5;font-size:.82rem;line-height:1.55}
 
-    .install-section{padding:115px 0}
-    .install-grid{display:grid;grid-template-columns:.82fr 1.18fr;align-items:start;gap:85px}
-    .install-copy{position:sticky;top:32px}
-    .install-copy h2{margin:0;font-family:var(--serif);font-size:clamp(2.7rem,5vw,4rem);font-weight:500;letter-spacing:-.05em;line-height:1.03}
-    .install-copy p:not(.eyebrow){margin:24px 0 0;color:var(--ink-soft);line-height:1.75}
-    .install-steps{display:grid;gap:13px}
-    .install-step{padding:23px;display:grid;grid-template-columns:43px 1fr;gap:17px;border:1px solid var(--line);border-radius:18px;background:#fff}
-    .step-number{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#def6f0;color:var(--mint-deep);font-family:var(--serif);font-weight:700}
-    .install-step strong{display:block;margin-bottom:4px;font-size:.95rem}
-    .install-step p{margin:0;color:#6d817d;font-size:.84rem;line-height:1.58}
-    .install-note{margin-top:18px;padding:16px 18px;border-left:3px solid #f6ba45;border-radius:0 12px 12px 0;background:#fff8e9;color:#655b45;font-size:.82rem;line-height:1.6}
-
     .story-section{padding:0 0 115px}
     .story-grid{display:grid;grid-template-columns:1.42fr .58fr;gap:22px}
     .story-main{padding:53px 56px;overflow:hidden;border-radius:28px;background:#dff4ef;position:relative}
@@ -207,7 +195,7 @@
       .product-grid,.product.medication .product-grid{grid-template-columns:1fr}
       .product-visual,.product.medication .product-visual{grid-column:1;grid-row:2;min-height:500px}
       .product-copy,.product.medication .product-copy{grid-column:1;grid-row:1}
-      .privacy-grid,.install-grid{grid-template-columns:1fr;gap:55px}.privacy-art{order:2}.install-copy{position:static}
+      .privacy-grid{grid-template-columns:1fr;gap:55px}.privacy-art{order:2}
       .story-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width:690px){
@@ -218,8 +206,8 @@
       .device-stage{min-height:425px;margin-top:-5px;transform:scale(.82)}.stage-orbit{width:440px;height:440px}
       .phone{width:205px;height:444px}.phone.journals{left:4%}.phone.medication{right:3%}
       .device-label.journal-label{left:-5%;top:12%}.device-label.medication-label{right:-5%;bottom:10%}
-      .principles{margin-top:-25px}.apps-section,.privacy-section,.install-section{padding:82px 0}
-      .section-heading h2,.privacy-copy h2,.install-copy h2{font-size:2.75rem}.product-copy{padding:34px 24px}.product h3{font-size:2.65rem}
+      .principles{margin-top:-25px}.apps-section,.privacy-section{padding:82px 0}
+      .section-heading h2,.privacy-copy h2{font-size:2.75rem}.product-copy{padding:34px 24px}.product h3{font-size:2.65rem}
       .feature-list{grid-template-columns:1fr}.product-visual,.product.medication .product-visual{min-height:0;padding:27px 20px}
       .module-grid{gap:10px}.module-card{padding:14px}.module-card img{width:52px;height:52px;border-radius:14px}
       .module-request{align-items:flex-start;flex-direction:column;gap:9px;padding:15px}
@@ -337,10 +325,10 @@
                 <li>Private history</li><li>Offline voice notes</li><li>Encrypted backups</li>
               </ul>
               <div class="product-actions">
-                <a class="button dark" href="https://github.com/mcardlejsn/mycarejournals/releases/download/downloads/Medication-Routine.apk">Download Android APK <span aria-hidden="true">↓</span></a>
+                <a class="button dark" href="https://play.google.com/store/apps/details?id=com.mycarejournals.medicationroutine" target="_blank" rel="noopener noreferrer">Get it on Google Play <span aria-hidden="true">↗</span></a>
                 <a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a>
               </div>
-              <p class="availability-note">Free for Android. No account required.</p>
+              <p class="availability-note">Available now on Google Play. Free for Android. No account required.</p>
             </div>
           </div>
         </article>
@@ -367,25 +355,6 @@
       </div>
     </section>
 
-    <section class="install-section" id="install">
-      <div class="shell install-grid">
-        <div class="install-copy">
-          <p class="eyebrow dark">Direct Android installation</p>
-          <h2>A few taps.<br>No account needed.</h2>
-          <p>Medication Routine is currently available as a standard signed Android APK. Android may ask you to approve installation from your browser the first time.</p>
-        </div>
-        <div>
-          <div class="install-steps">
-            <div class="install-step"><span class="step-number">1</span><div><strong>Download the APK</strong><p>Use the Medication Routine download button above and let the file finish downloading.</p></div></div>
-            <div class="install-step"><span class="step-number">2</span><div><strong>Open the downloaded file</strong><p>Your browser or Files app will ask whether you want to install it.</p></div></div>
-            <div class="install-step"><span class="step-number">3</span><div><strong>Allow this source if prompted</strong><p>Android may ask you to permit installation from that browser. You can turn the permission off again afterward.</p></div></div>
-            <div class="install-step"><span class="step-number">4</span><div><strong>Tap Install</strong><p>Android and Google Play Protect may scan the file before installation completes.</p></div></div>
-          </div>
-          <div class="install-note"><strong>Safety note:</strong> Download these apps only from mycarejournals.com or their official Google Play listings when available. Never install a copy sent by an unknown person.</div>
-        </div>
-      </div>
-    </section>
-
     <section class="story-section shell" id="story">
       <div class="story-grid">
         <div class="story-main">
@@ -405,7 +374,7 @@
   <footer>
     <div class="shell footer-grid">
       <div class="footer-column"><a class="brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" width="35" height="35"> My Care Journals</a><p>Small, private tools for the people doing the caring.</p></div>
-      <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#privacy">Privacy</a><a href="#install">How to install</a><a href="#story">About Jason</a></div>
+      <div class="footer-column"><strong>Explore</strong><a href="#apps">The apps</a><a href="#privacy">Privacy</a><a href="#story">About Jason</a></div>
       <div class="footer-column"><strong>Privacy policies</strong><a href="my-care-journals-privacy.html">My Care Journals</a><a href="medication-routine-privacy.html">Medication Routine</a></div>
       <div class="footer-column"><strong>Say hello</strong><a href="mailto:jason@mycarejournals.com">jason@mycarejournals.com</a><p>I read every message.</p></div>
     </div>
