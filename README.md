@@ -2,33 +2,31 @@
 
 Static GitHub Pages website for `mycarejournals.com`.
 
-## Current homepage downloads
+## Products
 
-The redesigned homepage presents two products:
+The homepage presents two Android products:
 
-- My Care Journals, containing Dementia, Autism, Parkinson's, and PWS journals
-- Medication Routine, which remains a separate app
+- **My Care Journals**, one unified app containing Dementia, Autism,
+  Parkinson's, and PWS journal modules
+- **Medication Routine**, a separate medication-support app
 
-My Care Journals is currently marked as coming soon. Medication Routine uses
-the fixed GitHub Release tag:
+Medication Routine links directly to its official Google Play listing. My Care
+Journals is marked as coming soon until its Google Play listing is available.
+The website does not distribute APK files directly.
 
-```text
-downloads
-```
+## Privacy policies
 
-Upload the signed Medication Routine APK using this exact filename:
+The two current product policies are:
 
-| App | Required release filename |
-| --- | --- |
-| Medication Routine | `Medication-Routine.apk` |
+- `my-care-journals-privacy.html`
+- `medication-routine-privacy.html`
 
-The Medication Routine website link does not need to be edited when its APK is replaced.
-Before replacing an existing APK, delete the old release asset with the same
-filename, then upload the newly signed file using that exact filename.
+The standalone Dementia, Autism, Parkinson's, and PWS policy pages remain
+available only so previously distributed links continue to work. They are not
+listed in the sitemap and are marked `noindex`.
 
-The previous standalone journal APK assets and privacy pages remain in the
-repository so existing public links are not broken, but they are no longer
-promoted on the homepage.
+## Brand assets
 
-All public APKs must be signed with the app's permanent signing/release key.
-Do not upload debug APKs or APKs signed with a Play upload key.
+The favicon, manifest icons, header mark, and social-preview image use the My
+Care Journals launcher artwork. Condition-specific journal icons and screenshots
+are used by the module cards and device previews on the homepage.
