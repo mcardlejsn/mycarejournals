@@ -22,6 +22,14 @@
   <meta name="twitter:title" content="My Care Journals — Private Tools for Family Caregivers">
   <meta name="twitter:description" content="Two free Android tools built from real care work. Private, practical, and designed to work offline.">
   <meta name="twitter:image" content="https://mycarejournals.com/favicon-512x512.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCTQNYS7V3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RCTQNYS7V3');
+  </script>
   <style>
     :root {
       --ink:#102c2a; --ink-soft:#526a67; --night:#061816; --night-2:#0c2925;
@@ -283,10 +291,10 @@
                 <li>Encrypted portable backups</li><li>Optional device App Lock</li><li>No account or subscription</li>
               </ul>
               <div class="product-actions">
-                <span class="button disabled" aria-disabled="true">Android release coming soon</span>
+                <a class="button dark" href="https://play.google.com/store/apps/details?id=com.mycarejournals.app" target="_blank" rel="noopener noreferrer" data-analytics-event="my_care_journals_play_click">Get it on Google Play <span aria-hidden="true">↗</span></a>
                 <a class="policy-link" href="my-care-journals-privacy.html">Privacy policy</a>
               </div>
-              <p class="availability-note">My Care Journals is being prepared for release.</p>
+              <p class="availability-note">Available now on Google Play. Free for Android. No account required.</p>
             </div>
             <div class="product-visual">
               <div class="module-grid" aria-label="Journals included in My Care Journals">
@@ -296,7 +304,7 @@
                 <div class="module-card"><img src="pws-journal-icon.png" alt=""><strong>PWS</strong><small>Food seeking, routines, anxiety, skin picking, sleep, and illness signs.</small></div>
                 <div class="module-request">
                   <span><strong>More journal modules are coming.</strong><small>Is there another condition that would help your family?</small></span>
-                  <a href="mailto:jason@mycarejournals.com?subject=Journal%20module%20request">Request a module <span aria-hidden="true">→</span></a>
+                  <a href="mailto:jason@mycarejournals.com?subject=Journal%20module%20request" data-analytics-event="request_module_click">Request a module <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -324,7 +332,7 @@
                 <li>Private history</li><li>Offline voice notes</li><li>Encrypted backups</li>
               </ul>
               <div class="product-actions">
-                <a class="button dark" href="https://play.google.com/store/apps/details?id=com.mycarejournals.medicationroutine" target="_blank" rel="noopener noreferrer">Get it on Google Play <span aria-hidden="true">↗</span></a>
+                <a class="button dark" href="https://play.google.com/store/apps/details?id=com.mycarejournals.medicationroutine" target="_blank" rel="noopener noreferrer" data-analytics-event="medication_routine_play_click">Get it on Google Play <span aria-hidden="true">↗</span></a>
                 <a class="policy-link" href="medication-routine-privacy.html">Privacy policy</a>
               </div>
               <p class="availability-note">Available now on Google Play. Free for Android. No account required.</p>
@@ -363,7 +371,7 @@
         </div>
         <div class="story-side">
           <p>These apps are free because the people who need them are already paying enough.</p>
-          <a href="https://ko-fi.com/jason_dsp">Tip the developer <span aria-hidden="true">↗</span></a>
+          <a href="https://ko-fi.com/jason_dsp" data-analytics-event="ko_fi_support_click">Tip the developer <span aria-hidden="true">↗</span></a>
           <small>A tip unlocks nothing. That’s on purpose.</small>
         </div>
       </div>
@@ -414,6 +422,17 @@
       document.addEventListener("visibilitychange", startCarousel);
       startCarousel();
     })();
+  </script>
+  <script>
+    document.querySelectorAll("[data-analytics-event]").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (typeof window.gtag !== "function") return;
+        window.gtag("event", link.dataset.analyticsEvent, {
+          link_url: link.href,
+          link_text: link.textContent.trim()
+        });
+      });
+    });
   </script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"47a1fdaf17a6489aa4054f97822353f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
