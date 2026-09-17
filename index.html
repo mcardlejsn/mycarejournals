@@ -84,10 +84,10 @@
 
     .device-stage{min-height:600px;display:grid;place-items:center;position:relative}
     .stage-orbit{position:absolute;width:500px;height:500px;border:1px solid rgba(97,223,203,.16);border-radius:50%}
-    .phone{position:absolute;width:232px;height:500px;padding:7px;overflow:hidden;border:7px solid #162522;border-radius:39px;background:#050908;box-shadow:0 42px 90px rgba(0,0,0,.54),0 0 0 1px rgba(255,255,255,.08)}
+    .phone{position:absolute;width:210px;height:453px;padding:7px;overflow:hidden;border:7px solid #162522;border-radius:39px;background:#050908;box-shadow:0 42px 90px rgba(0,0,0,.54),0 0 0 1px rgba(255,255,255,.08)}
     .phone::before{content:"";position:absolute;z-index:4;top:9px;left:50%;width:74px;height:17px;border-radius:20px;background:#050908;transform:translateX(-50%)}
-    .phone.journals{z-index:3;left:18%;top:13%;transform:rotate(-4deg);cursor:pointer;appearance:none}
-    .phone.medication{z-index:2;right:12%;bottom:10%;transform:rotate(5deg) scale(.91);border-color:#211938}
+    .phone.journals{z-index:3;left:calc(50% - 225px);top:13%;transform:rotate(-2deg);cursor:pointer;appearance:none}
+    .phone.medication{z-index:2;right:calc(50% - 225px);bottom:10%;transform:rotate(2deg) scale(.91);border-color:#211938}
     .phone-screen-stage{width:100%;height:100%;display:block;position:relative;overflow:hidden;border-radius:26px;background:#050908}
     .phone-screen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
     .phone.journals .phone-screen{opacity:0;transition:opacity .6s ease}
@@ -225,7 +225,7 @@
       .hero{min-height:0;padding:116px 0 92px}.hero h1{font-size:clamp(2.8rem,13vw,3.75rem)}.hero-intro{font-size:1rem}
       .hero-actions{width:100%;flex-direction:column}.hero-actions .button{width:100%}
       .device-stage{min-height:520px;margin-top:-5px;transform:scale(.82)}.stage-orbit{width:440px;height:440px}
-      .phone{width:205px;height:444px}.phone.journals{left:4%;top:14%}.phone.medication{right:3%;bottom:10%}
+      .phone{width:min(165px,46%);height:auto;aspect-ratio:210/453}.phone.journals{left:max(0px,calc(50% - 180px));top:14%;transform:none}.phone.medication{right:max(0px,calc(50% - 180px));bottom:10%;transform:none}
       .device-label.journal-label{left:1%;top:0}.device-label.medication-label{right:1%;bottom:0}
       .principles{margin-top:-25px}.apps-section,.privacy-section{padding:82px 0}
       .section-heading h2,.privacy-copy h2{font-size:2.75rem}.product-copy{padding:34px 24px}.product h3{font-size:2.65rem}
