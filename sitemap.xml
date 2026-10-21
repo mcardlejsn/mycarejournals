@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mycarejournals.com/</loc></url>
+  <url><loc>https://mycarejournals.com/get/</loc></url>
   <url><loc>https://mycarejournals.com/my-care-journals-privacy.html</loc></url>
-  <url><loc>https://mycarejournals.com/medication-routine-privacy.html</loc></url>
+  <url><loc>https://mycarejournals.com/parkinsons.html</loc></url>
+  <url><loc>https://mycarejournals.com/dementia.html</loc></url>
+  <url><loc>https://mycarejournals.com/autism.html</loc></url>
+  <url><loc>https://mycarejournals.com/prader-willi-syndrome.html</loc></url>
+  <url><loc>https://mycarejournals.com/intellectual-disability.html</loc></url>
+  <url><loc>https://mycarejournals.com/bipolar-disorder.html</loc></url>
+  <url><loc>https://mycarejournals.com/down-syndrome.html</loc></url>
+  <url><loc>https://mycarejournals.com/schizophrenia.html</loc></url>
+  <url><loc>https://mycarejournals.com/multiple-sclerosis.html</loc></url>
+  <url><loc>https://mycarejournals.com/adhd.html</loc></url>
+  <url><loc>https://mycarejournals.com/cerebral-palsy.html</loc></url>
+  <url><loc>https://mycarejournals.com/fragile-x.html</loc></url>
 </urlset>
